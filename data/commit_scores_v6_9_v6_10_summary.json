@@ -1,0 +1,54 @@
+{
+  "version_range": "v6.9..v6.10",
+  "company_filter": "all",
+  "total_commits_analyzed": 2,
+  "total_score": 70,
+  "average_score": 35.0,
+  "score_distribution": {
+    "90_100_exceptional": 0,
+    "70_89_high": 0,
+    "50_69_medium": 0,
+    "30_49_low": 1,
+    "10_29_minimal": 1,
+    "0_9_trivial": 0
+  },
+  "dimension_averages": {
+    "technical": 8.0,
+    "impact": 13.5,
+    "quality": 8.5,
+    "community": 5.0
+  },
+  "by_category": {
+    "DOC-CHANGELOG": {
+      "count": 1,
+      "total_score": 23,
+      "avg_score": 23.0
+    },
+    "UNKNOWN": {
+      "count": 1,
+      "total_score": 47,
+      "avg_score": 47.0
+    }
+  },
+  "by_subsystem": {
+    "build": {
+      "count": 1,
+      "total_score": 23,
+      "avg_score": 23.0
+    },
+    "unknown": {
+      "count": 1,
+      "total_score": 47,
+      "avg_score": 47.0
+    }
+  },
+  "top_10_commits": [
+    "84679f04ceaf: fortify: fix warnings in fortify tests with KASAN... (score: 47)",
+    "0c3836482481: Linux 6.10... (score: 23)"
+  ],
+  "bottom_10_commits": [
+    "84679f04ceaf: fortify: fix warnings in fortify tests with KASAN... (score: 47)",
+    "0c3836482481: Linux 6.10... (score: 23)"
+  ],
+  "flags_summary": {}
+}

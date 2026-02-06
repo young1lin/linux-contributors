@@ -1,0 +1,154 @@
+[
+  {
+    "commit_hash": "0c3836482481200ead7b416ca80c68a29cfdaabd",
+    "short_hash": "0c3836482481",
+    "author_name": "Linus Torvalds",
+    "author_email": "torvalds@linux-foundation.org",
+    "author_company": "Linux-foundation",
+    "author_date": "2024-07-14T15:43:32-07:00",
+    "committer_name": "Linus Torvalds",
+    "committer_email": "torvalds@linux-foundation.org",
+    "committer_company": "Linux-foundation",
+    "commit_date": "2024-07-14T15:43:32-07:00",
+    "subject": "Linux 6.10",
+    "primary_category": "DOC-CHANGELOG",
+    "secondary_categories": [],
+    "cve_ids": [],
+    "fixes_tag": "",
+    "cc_stable": false,
+    "subsystem_prefix": "build",
+    "subsystems_touched": [
+      "build"
+    ],
+    "subsystem_tier": 4,
+    "files_changed": 1,
+    "insertions": 1,
+    "deletions": 1,
+    "hunks": 2,
+    "review_chain": {
+      "signed_off_by": [],
+      "reviewed_by": [],
+      "tested_by": [],
+      "acked_by": [],
+      "reported_by": []
+    },
+    "score_total": 23,
+    "score_technical": 5,
+    "score_impact": 12,
+    "score_quality": 3,
+    "score_community": 3,
+    "score_breakdown": {
+      "technical": {
+        "code_volume": 1,
+        "subsystem_criticality": 4,
+        "cross_subsystem": 0,
+        "subtotal": 5,
+        "details": "Minimal change to Makefile for release version bump"
+      },
+      "impact": {
+        "category_base": 2,
+        "stable_lts": 0,
+        "user_impact": 5,
+        "novelty": 5,
+        "subtotal": 12,
+        "details": "Major kernel release affecting all users"
+      },
+      "quality": {
+        "review_chain": 0,
+        "message_quality": 1,
+        "testing": 0,
+        "atomicity": 2,
+        "subtotal": 3,
+        "details": "Standard release commit format, atomic change"
+      },
+      "community": {
+        "cross_org": 0,
+        "maintainer": 3,
+        "response": 0,
+        "subtotal": 3,
+        "details": "Release by Linus Torvalds as maintainer"
+      }
+    },
+    "score_justification": "Official Linux 6.10 release commit by Linus Torvalds, minimal code change but significant milestone",
+    "code_snippet": "@@ -2,7 +2,7 @@\n VERSION = 6\n PATCHLEVEL = 10\n SUBLEVEL = 0\n-EXTRAVERSION = -rc7\n+EXTRAVERSION =\n NAME = Baby Opossum Posse\n \n # *DOCUMENTATION*\n",
+    "flags": [],
+    "link": "https://lore.kernel.org/linux-kernel/0c3836482481200ead7b416ca80c68a29cfdaabd"
+  },
+  {
+    "commit_hash": "84679f04ceafd58d9b35f790203520b2930f1a03",
+    "short_hash": "84679f04ceaf",
+    "author_name": "Masahiro Yamada",
+    "author_email": "masahiroy@kernel.org",
+    "author_company": "Kernel",
+    "author_date": "2024-07-15T02:04:32+09:00",
+    "committer_name": "Masahiro Yamada",
+    "committer_email": "masahiroy@kernel.org",
+    "committer_company": "Kernel",
+    "commit_date": "2024-07-15T04:53:49+09:00",
+    "subject": "fortify: fix warnings in fortify tests with KASAN",
+    "primary_category": "UNKNOWN",
+    "secondary_categories": [],
+    "cve_ids": [],
+    "fixes_tag": "",
+    "cc_stable": false,
+    "subsystem_prefix": "unknown",
+    "subsystems_touched": [],
+    "subsystem_tier": 3,
+    "files_changed": 1,
+    "insertions": 4,
+    "deletions": 0,
+    "hunks": 2,
+    "review_chain": {
+      "signed_off_by": [
+        "Masahiro Yamada <masahiroy@kernel.org> (Kernel)"
+      ],
+      "reviewed_by": [],
+      "tested_by": [],
+      "acked_by": [],
+      "reported_by": [
+        "Arnd Bergmann <arnd@arndb.de> (Arndb)"
+      ]
+    },
+    "score_total": 47,
+    "score_technical": 11,
+    "score_impact": 15,
+    "score_quality": 14,
+    "score_community": 7,
+    "score_breakdown": {
+      "technical": {
+        "code_volume": 2,
+        "subsystem_criticality": 6,
+        "cross_subsystem": 3,
+        "subtotal": 11,
+        "details": "Minimal Makefile change (4 lines) to build system affecting fortify tests across architectures. Touches kbuild (tier 3) with implications for security testing infrastructure."
+      },
+      "impact": {
+        "category_base": 8,
+        "stable_lts": 3,
+        "user_impact": 2,
+        "novelty": 2,
+        "subtotal": 15,
+        "details": "BUILD-FIX (base 8) resolving regression from 9c2d1328f88a. Fixes tag indicates backport candidate. Impacts developer experience (test warnings) rather than runtime. Standard fix pattern."
+      },
+      "quality": {
+        "review_chain": 4,
+        "message_quality": 6,
+        "testing": 2,
+        "atomicity": 2,
+        "subtotal": 14,
+        "details": "Self-committed by build maintainer. Excellent message with root cause analysis, architecture-specific context, and regression linkage. Implicit verification via fixing test warnings."
+      },
+      "community": {
+        "cross_org": 2,
+        "maintainer": 3,
+        "response": 2,
+        "subtotal": 7,
+        "details": "Reported-by Arnd Bergmann (cross-org collaboration). Committed by kbuild maintainer. Responsive fix to reported issue with detailed explanation."
+      }
+    },
+    "score_justification": "Build system fix resolving architecture-specific test warnings caused by KASAN flag handling regression. Minimal code change (4 lines) but demonstrates deep understanding of build infrastructure, sanitizer interactions, and cross-architecture compatibility. High-quality commit message with thorough root cause analysis.",
+    "code_snippet": "@@ -426,3 +426,7 @@ $(obj)/$(TEST_FORTIFY_LOG): $(addprefix $(obj)/, $(TEST_FORTIFY_LOGS)) FORCE\n ifeq ($(CONFIG_FORTIFY_SOURCE),y)\n $(obj)/string.o: $(obj)/$(TEST_FORTIFY_LOG)\n endif\n+\n+# Some architectures define __NO_FORTIFY if __SANITIZE_ADDRESS__ is undefined.\n+# Pass CFLAGS_KASAN to avoid warnings.\n+$(foreach x, $(patsubst %.log,%.o,$(TEST_FORTIFY_LOGS)), $(eval KASAN_SANITIZE_$(x) := y))\n",
+    "flags": [],
+    "link": "https://lore.kernel.org/linux-kernel/84679f04ceafd58d9b35f790203520b2930f1a03"
+  }
+]

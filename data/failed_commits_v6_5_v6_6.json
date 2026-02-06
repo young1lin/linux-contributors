@@ -1,0 +1,23 @@
+[
+  {
+    "commit_hash": "197f9fba9663e765f8f3ae3b2375c6cc32b2e2b3",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "net: ipv4: fix typo in comments",
+    "timestamp": "2026-02-03T22:13:44.660274"
+  },
+  {
+    "commit_hash": "28926daf731f72d0537767fdbab2a3e06e31190a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "fpga: Fix memory leak for fpga_region_test_class_find()",
+    "timestamp": "2026-02-03T22:13:45.433060"
+  },
+  {
+    "commit_hash": "13454e6e0df2ff37853596d546438ac84ca6a413",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "isdn: mISDN: hfcsusb: Spelling fix in comment",
+    "timestamp": "2026-02-03T22:13:51.964269"
+  }
+]

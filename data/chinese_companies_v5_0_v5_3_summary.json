@@ -1,0 +1,120 @@
+{
+  "version_range": "v5.0..v5.3",
+  "total_commits": 50,
+  "companies": {
+    "Huawei": {
+      "commit_count": 38,
+      "total_score": 586,
+      "avg_score": 15.42,
+      "categories": {
+        "MAINT-OTHER": 2,
+        "BUG-OTHER": 7,
+        "UNKNOWN": 18,
+        "BUG-LEAK": 2,
+        "BUILD": 1,
+        "TRIV-TRIVIAL": 1,
+        "BUG-REGRESSION": 1,
+        "BUG-HANG": 1,
+        "MAINT-CLEANUP": 2,
+        "BUG-CRASH": 2,
+        "MAINT-REFACTOR": 1
+      }
+    },
+    "Kylin": {
+      "commit_count": 2,
+      "total_score": 37,
+      "avg_score": 18.5,
+      "categories": {
+        "UNKNOWN": 1,
+        "BUG-RACE": 1
+      }
+    },
+    "Tencent": {
+      "commit_count": 4,
+      "total_score": 48,
+      "avg_score": 12.0,
+      "categories": {
+        "UNKNOWN": 3,
+        "SEC-VULN": 1
+      }
+    },
+    "MediaTek": {
+      "commit_count": 2,
+      "total_score": 32,
+      "avg_score": 16.0,
+      "categories": {
+        "UNKNOWN": 1,
+        "BUG-OTHER": 1
+      }
+    },
+    "Baidu": {
+      "commit_count": 2,
+      "total_score": 28,
+      "avg_score": 14.0,
+      "categories": {
+        "UNKNOWN": 1,
+        "BUG-OTHER": 1
+      }
+    },
+    "ZTE": {
+      "commit_count": 2,
+      "total_score": 0,
+      "avg_score": 0.0,
+      "categories": {
+        "UNKNOWN": 2
+      }
+    }
+  },
+  "top_companies_by_commits": [
+    [
+      "Huawei",
+      38
+    ],
+    [
+      "Tencent",
+      4
+    ],
+    [
+      "Kylin",
+      2
+    ],
+    [
+      "MediaTek",
+      2
+    ],
+    [
+      "Baidu",
+      2
+    ],
+    [
+      "ZTE",
+      2
+    ]
+  ],
+  "top_companies_by_score": [
+    [
+      "Huawei",
+      586
+    ],
+    [
+      "Tencent",
+      48
+    ],
+    [
+      "Kylin",
+      37
+    ],
+    [
+      "MediaTek",
+      32
+    ],
+    [
+      "Baidu",
+      28
+    ],
+    [
+      "ZTE",
+      0
+    ]
+  ]
+}

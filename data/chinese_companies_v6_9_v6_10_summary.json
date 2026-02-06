@@ -1,0 +1,42 @@
+{
+  "version_range": "v6.9..v6.10",
+  "total_commits": 2,
+  "companies": {
+    "Huawei": {
+      "commit_count": 1,
+      "total_score": 0,
+      "avg_score": 0.0,
+      "categories": {
+        "UNKNOWN": 1
+      }
+    },
+    "Kylin": {
+      "commit_count": 1,
+      "total_score": 0,
+      "avg_score": 0.0,
+      "categories": {
+        "UNKNOWN": 1
+      }
+    }
+  },
+  "top_companies_by_commits": [
+    [
+      "Huawei",
+      1
+    ],
+    [
+      "Kylin",
+      1
+    ]
+  ],
+  "top_companies_by_score": [
+    [
+      "Huawei",
+      0
+    ],
+    [
+      "Kylin",
+      0
+    ]
+  ]
+}
