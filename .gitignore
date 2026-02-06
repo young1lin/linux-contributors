@@ -10,7 +10,7 @@ ENV/
 
 # Project specific
 data/debug*.html
-data/v*.json
+data/logs/
 *.log
 
 # IDE
