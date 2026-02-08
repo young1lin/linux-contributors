@@ -80,18 +80,22 @@ The tool uses the `.claude/agents/kernel-commit-analyzer.md` agent to analyze co
 - **Device Tree**: DT-BINDING, DT-SOURCE, DT-FIX
 - **Backport**: BACK-STABLE, BACK-REVERT, BACK-MERGE
 
-### Scoring
+### Scoring (v3)
 
 | Dimension | Range | Components |
 |-----------|-------|------------|
-| Technical | 0-40 | Code volume (0-20), Subsystem criticality (0-10), Cross-subsystem (0-10) |
-| Impact | 0-30 | Category base (0-15), Stable/LTS (0-5), User impact (0-5), Novelty (0-5) |
-| Quality | 0-20 | Review chain (0-8), Message quality (0-6), Testing (0-4), Atomicity (0-2) |
+| Technical | 0-30 | Code volume (0-14), Subsystem criticality (0-10), Cross-subsystem (0-6) |
+| Impact | 0-35 | Category base (0-15), Stable/LTS (0-5), User impact (0-10), Novelty (0-5) |
+| Quality | 0-25 | Review chain (0-10), Message quality (0-7), Testing (0-6), Atomicity (0-2) |
 | Community | 0-10 | Cross-org (0-4), Maintainer (0-3), Response (0-3) |
 
 ### Subsystem Tier
 
 `subsystem_tier` is an integer 1-6 (1=most critical). Mapped to A2 points: Tier 1→10, 2→8, 3→6, 4→4, 5→2, 6→1.
+
+- Tier 2 includes `arch/x86/` core paths (`kernel/`, `mm/`, `entry/`) and `arch/arm64/` core
+- Tier 3 includes `tools/perf/` and `tools/bpf/`
+- Tier 6 includes `MAINTAINERS`, `CREDITS`, `.mailmap` (moved from Tier 5)
 
 ## Project Structure
 

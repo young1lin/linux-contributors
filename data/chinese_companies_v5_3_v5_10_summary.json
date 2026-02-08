@@ -1,0 +1,528 @@
+{
+  "version_range": "v5.3..v5.10",
+  "total_commits": 5294,
+  "companies": {
+    "Huawei": {
+      "commit_count": 3921,
+      "total_score": 105697,
+      "avg_score": 26.96,
+      "categories": {
+        "TRIV-INCLUDE": 23,
+        "MAINT-SIMPLIFY": 279,
+        "MAINT-WARN": 857,
+        "MAINT-CLEANUP": 500,
+        "BUILD-FIX": 93,
+        "BUG-LOGIC": 486,
+        "MAINT-API-MIG": 383,
+        "MAINT-DUP": 11,
+        "MAINT-REFACTOR": 61,
+        "FEAT-TRACE": 45,
+        "BUG-DEADLOCK": 19,
+        "BUG-CRASH": 95,
+        "FEAT-FUNC": 112,
+        "FAILED": 342,
+        "BUG-MEMLEAK": 88,
+        "BUG-RESOURCE": 118,
+        "MAINT-NAMING": 37,
+        "BUG-CORRUPT": 33,
+        "BUG-REGRESSION": 12,
+        "TRIV-COMMENT": 21,
+        "BUILD-KCONFIG": 5,
+        "DOC-API": 27,
+        "SEC-VULN": 21,
+        "FEAT-PERF": 38,
+        "BUG-RACE": 24,
+        "FEAT-DRIVER": 8,
+        "DOC-MAINTAINERS": 5,
+        "DOC-KERNEL": 16,
+        "BUG-COMPAT": 15,
+        "TRIV-TYPO": 22,
+        "BUG-MEMRESOURCE": 1,
+        "BUG-PERF-REG": 4,
+        "TRIV-WHITESPACE": 8,
+        "SEC-HARDEN": 10,
+        "FEAT-HW": 22,
+        "MAINT-DEPR": 10,
+        "DT-BINDING": 52,
+        "FEAT-TEST": 1,
+        "BUG-WARN": 1,
+        "SEC-ACCESS": 2,
+        "FEAT-API": 8,
+        "BACK-REVERT": 1,
+        "DT-FIX": 5
+      }
+    },
+    "MediaTek": {
+      "commit_count": 695,
+      "total_score": 23300,
+      "avg_score": 33.53,
+      "categories": {
+        "FEAT-FUNC": 129,
+        "BUG-LOGIC": 116,
+        "MAINT-NAMING": 12,
+        "MAINT-CLEANUP": 20,
+        "TRIV-TYPO": 2,
+        "DT-BINDING": 67,
+        "FEAT-HW": 81,
+        "MAINT-REFACTOR": 33,
+        "FAILED": 21,
+        "DT-SOURCE": 16,
+        "DT-FIX": 5,
+        "FEAT-DRIVER": 15,
+        "BUG-RESOURCE": 6,
+        "MAINT-API-MIG": 33,
+        "MAINT-SIMPLIFY": 27,
+        "BUILD-KCONFIG": 1,
+        "FEAT-API": 19,
+        "MAINT-WARN": 8,
+        "TRIV-COPYRIGHT": 2,
+        "BUG-CRASH": 9,
+        "BUG-MEMLEAK": 5,
+        "FEAT-POWER": 9,
+        "BUG-RACE": 5,
+        "MAINT-DUP": 4,
+        "BUG-REGRESSION": 9,
+        "DOC-MAINTAINERS": 4,
+        "DOC-KERNEL": 3,
+        "BUG-PERF-REG": 1,
+        "FEAT-PERF": 4,
+        "BUG-COMPAT": 3,
+        "TRIV-COMMENT": 1,
+        "BUG-DEADLOCK": 4,
+        "FEAT-TRACE": 7,
+        "MAINT-DEPR": 1,
+        "FEAT-TEST": 3,
+        "SEC-HARDEN": 2,
+        "DOC-KCONFIG": 2,
+        "BUG-CORRUPT": 2,
+        "FEAT-SUBSYS": 1,
+        "BUILD-FIX": 2,
+        "DOC-API": 1
+      }
+    },
+    "ZTE": {
+      "commit_count": 42,
+      "total_score": 1158,
+      "avg_score": 27.57,
+      "categories": {
+        "BUG-MEMLEAK": 2,
+        "BUG-RESOURCE": 2,
+        "MAINT-WARN": 4,
+        "BUG-LOGIC": 5,
+        "SEC-VULN": 1,
+        "TRIV-COMMENT": 5,
+        "FEAT-FUNC": 1,
+        "FAILED": 2,
+        "DOC-API": 3,
+        "BUG-CRASH": 3,
+        "BUG-RACE": 1,
+        "MAINT-CLEANUP": 9,
+        "MAINT-SIMPLIFY": 3,
+        "BUG-CORRUPT": 1
+      }
+    },
+    "Lenovo": {
+      "commit_count": 22,
+      "total_score": 753,
+      "avg_score": 34.23,
+      "categories": {
+        "DT-SOURCE": 1,
+        "MAINT-CLEANUP": 4,
+        "FEAT-PERF": 4,
+        "TRIV-TYPO": 1,
+        "MAINT-SIMPLIFY": 2,
+        "BUG-CRASH": 2,
+        "FAILED": 1,
+        "BUG-LOGIC": 4,
+        "BUG-PERF-REG": 1,
+        "FEAT-HW": 1,
+        "BUG-CORRUPT": 1
+      }
+    },
+    "HiSilicon": {
+      "commit_count": 201,
+      "total_score": 6070,
+      "avg_score": 30.2,
+      "categories": {
+        "MAINT-CLEANUP": 14,
+        "MAINT-SIMPLIFY": 8,
+        "MAINT-WARN": 19,
+        "SEC-HARDEN": 1,
+        "FEAT-PERF": 4,
+        "BUG-RESOURCE": 4,
+        "BUG-LOGIC": 28,
+        "FEAT-API": 1,
+        "FEAT-SUBSYS": 2,
+        "FEAT-DRIVER": 3,
+        "FEAT-FUNC": 15,
+        "DOC-KERNEL": 3,
+        "DOC-MAINTAINERS": 3,
+        "FEAT-TRACE": 1,
+        "BUG-PERF-REG": 1,
+        "FAILED": 13,
+        "BUILD-FIX": 5,
+        "FEAT-HW": 8,
+        "BUG-CRASH": 4,
+        "MAINT-NAMING": 5,
+        "MAINT-REFACTOR": 17,
+        "BUG-RACE": 6,
+        "BUG-CORRUPT": 4,
+        "BUG-DEADLOCK": 3,
+        "TRIV-TYPO": 4,
+        "MAINT-API-MIG": 12,
+        "BUG-COMPAT": 1,
+        "MAINT-DUP": 1,
+        "TRIV-WHITESPACE": 2,
+        "TRIV-INCLUDE": 4,
+        "BUG-REGRESSION": 1,
+        "BACK-REVERT": 1,
+        "DOC-API": 1,
+        "FEAT-POWER": 2
+      }
+    },
+    "Tencent": {
+      "commit_count": 88,
+      "total_score": 3157,
+      "avg_score": 35.88,
+      "categories": {
+        "FEAT-PERF": 22,
+        "FEAT-TRACE": 3,
+        "FEAT-FUNC": 2,
+        "BUG-LOGIC": 12,
+        "BUG-CRASH": 7,
+        "BUG-PERF-REG": 3,
+        "MAINT-SIMPLIFY": 11,
+        "BUG-RACE": 2,
+        "MAINT-CLEANUP": 10,
+        "FAILED": 8,
+        "TRIV-TYPO": 1,
+        "TRIV-WHITESPACE": 1,
+        "MAINT-NAMING": 3,
+        "BUG-REGRESSION": 1,
+        "TRIV-COMMENT": 1,
+        "BUG-MEMLEAK": 1
+      }
+    },
+    "Xiaomi": {
+      "commit_count": 34,
+      "total_score": 1040,
+      "avg_score": 30.59,
+      "categories": {
+        "MAINT-CLEANUP": 5,
+        "BUG-REGRESSION": 1,
+        "BUG-CRASH": 1,
+        "BUG-RESOURCE": 2,
+        "MAINT-API-MIG": 11,
+        "MAINT-SIMPLIFY": 7,
+        "BUG-MEMLEAK": 1,
+        "TRIV-COMMENT": 1,
+        "DOC-API": 1,
+        "TRIV-TYPO": 1,
+        "SEC-HARDEN": 1,
+        "MAINT-NAMING": 1,
+        "FAILED": 1
+      }
+    },
+    "Inspur": {
+      "commit_count": 5,
+      "total_score": 149,
+      "avg_score": 29.8,
+      "categories": {
+        "DT-FIX": 1,
+        "DT-BINDING": 1,
+        "FEAT-HW": 2,
+        "FEAT-DRIVER": 1
+      }
+    },
+    "Baidu": {
+      "commit_count": 21,
+      "total_score": 687,
+      "avg_score": 32.71,
+      "categories": {
+        "MAINT-CLEANUP": 7,
+        "BUG-RACE": 1,
+        "FAILED": 2,
+        "FEAT-FUNC": 1,
+        "DOC-API": 1,
+        "BUG-LOGIC": 4,
+        "BUG-CORRUPT": 1,
+        "BUG-MEMLEAK": 1,
+        "SEC-VULN": 1,
+        "MAINT-SIMPLIFY": 1,
+        "FEAT-PERF": 1
+      }
+    },
+    "Kylin": {
+      "commit_count": 19,
+      "total_score": 652,
+      "avg_score": 34.32,
+      "categories": {
+        "BUG-LOGIC": 3,
+        "FEAT-PERF": 1,
+        "FEAT-FUNC": 2,
+        "SEC-VULN": 1,
+        "MAINT-SIMPLIFY": 2,
+        "BUG-CRASH": 1,
+        "MAINT-NAMING": 1,
+        "MAINT-REFACTOR": 2,
+        "MAINT-CLEANUP": 2,
+        "BUILD-FIX": 3,
+        "MAINT-DEPR": 1
+      }
+    },
+    "ByteDance": {
+      "commit_count": 21,
+      "total_score": 854,
+      "avg_score": 40.67,
+      "categories": {
+        "BUG-RACE": 2,
+        "MAINT-DUP": 1,
+        "FEAT-FUNC": 3,
+        "FEAT-API": 1,
+        "BUG-LOGIC": 7,
+        "BUG-CRASH": 3,
+        "BUG-MEMLEAK": 2,
+        "BUG-DEADLOCK": 2
+      }
+    },
+    "Loongson": {
+      "commit_count": 132,
+      "total_score": 3845,
+      "avg_score": 29.13,
+      "categories": {
+        "FAILED": 7,
+        "MAINT-CLEANUP": 22,
+        "BUG-LOGIC": 32,
+        "BUG-CRASH": 6,
+        "FEAT-FUNC": 4,
+        "DOC-MAINTAINERS": 2,
+        "FEAT-HW": 9,
+        "MAINT-WARN": 5,
+        "BUILD-MAKEFILE": 2,
+        "TRIV-TYPO": 5,
+        "MAINT-NAMING": 2,
+        "MAINT-DEPR": 2,
+        "TRIV-INCLUDE": 3,
+        "BUG-RESOURCE": 5,
+        "BUILD-KCONFIG": 2,
+        "FEAT-PERF": 3,
+        "BUILD-FIX": 7,
+        "BUG-CORRUPT": 2,
+        "MAINT-API-MIG": 3,
+        "SEC-HARDEN": 1,
+        "BUG-DEADLOCK": 2,
+        "MAINT-SIMPLIFY": 1,
+        "DOC-CHANGELOG": 1,
+        "DOC-KERNEL": 2,
+        "TRIV-COMMENT": 1,
+        "BACK-REVERT": 1
+      }
+    },
+    "JD": {
+      "commit_count": 2,
+      "total_score": 70,
+      "avg_score": 35.0,
+      "categories": {
+        "BUILD-FIX": 1,
+        "BUG-LOGIC": 1
+      }
+    },
+    "OPPO": {
+      "commit_count": 4,
+      "total_score": 130,
+      "avg_score": 32.5,
+      "categories": {
+        "MAINT-CLEANUP": 1,
+        "SEC-VULN": 1,
+        "MAINT-DUP": 1,
+        "DOC-API": 1
+      }
+    },
+    "vivo": {
+      "commit_count": 78,
+      "total_score": 1591,
+      "avg_score": 20.4,
+      "categories": {
+        "TRIV-TYPO": 16,
+        "BUILD-FIX": 1,
+        "TRIV-WHITESPACE": 2,
+        "FAILED": 8,
+        "DOC-KERNEL": 7,
+        "BUG-LOGIC": 8,
+        "TRIV-COMMENT": 4,
+        "DOC-API": 1,
+        "MAINT-SIMPLIFY": 6,
+        "MAINT-CLEANUP": 4,
+        "FEAT-PERF": 3,
+        "MAINT-REFACTOR": 1,
+        "BUG-RESOURCE": 1,
+        "BUG-MEMLEAK": 3,
+        "MAINT-API-MIG": 11,
+        "MAINT-NAMING": 1,
+        "SEC-VULN": 1
+      }
+    },
+    "UnionTech": {
+      "commit_count": 5,
+      "total_score": 123,
+      "avg_score": 24.6,
+      "categories": {
+        "FAILED": 1,
+        "BUG-CRASH": 1,
+        "TRIV-TYPO": 1,
+        "FEAT-HW": 1,
+        "BUG-COMPAT": 1
+      }
+    },
+    "Phytium": {
+      "commit_count": 4,
+      "total_score": 142,
+      "avg_score": 35.5,
+      "categories": {
+        "BUG-CRASH": 2,
+        "BUG-REGRESSION": 1,
+        "FAILED": 1
+      }
+    }
+  },
+  "top_companies_by_commits": [
+    [
+      "Huawei",
+      3921
+    ],
+    [
+      "MediaTek",
+      695
+    ],
+    [
+      "HiSilicon",
+      201
+    ],
+    [
+      "Loongson",
+      132
+    ],
+    [
+      "Tencent",
+      88
+    ],
+    [
+      "vivo",
+      78
+    ],
+    [
+      "ZTE",
+      42
+    ],
+    [
+      "Xiaomi",
+      34
+    ],
+    [
+      "Lenovo",
+      22
+    ],
+    [
+      "Baidu",
+      21
+    ],
+    [
+      "ByteDance",
+      21
+    ],
+    [
+      "Kylin",
+      19
+    ],
+    [
+      "Inspur",
+      5
+    ],
+    [
+      "UnionTech",
+      5
+    ],
+    [
+      "OPPO",
+      4
+    ],
+    [
+      "Phytium",
+      4
+    ],
+    [
+      "JD",
+      2
+    ]
+  ],
+  "top_companies_by_score": [
+    [
+      "Huawei",
+      105697
+    ],
+    [
+      "MediaTek",
+      23300
+    ],
+    [
+      "HiSilicon",
+      6070
+    ],
+    [
+      "Loongson",
+      3845
+    ],
+    [
+      "Tencent",
+      3157
+    ],
+    [
+      "vivo",
+      1591
+    ],
+    [
+      "ZTE",
+      1158
+    ],
+    [
+      "Xiaomi",
+      1040
+    ],
+    [
+      "ByteDance",
+      854
+    ],
+    [
+      "Lenovo",
+      753
+    ],
+    [
+      "Baidu",
+      687
+    ],
+    [
+      "Kylin",
+      652
+    ],
+    [
+      "Inspur",
+      149
+    ],
+    [
+      "Phytium",
+      142
+    ],
+    [
+      "OPPO",
+      130
+    ],
+    [
+      "UnionTech",
+      123
+    ],
+    [
+      "JD",
+      70
+    ]
+  ]
+}

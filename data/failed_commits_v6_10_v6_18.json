@@ -1,0 +1,1437 @@
+[
+  {
+    "commit_hash": "083d7af3350e04c428256a3bd10003f63151b6b1",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "MAINTAINERS: erofs: add myself as reviewer",
+    "timestamp": "2026-02-07T16:38:42.917912"
+  },
+  {
+    "commit_hash": "9631350885929819d4e46c6521df35960b472ef3",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mtd: rawnand: realtek: Make rtl_ecc_engine_ops const",
+    "timestamp": "2026-02-07T16:39:49.993833"
+  },
+  {
+    "commit_hash": "d30352829667b92809ed4cb55844ea1841d146a6",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mailbox: arm_mhuv3: Remove no_free_ptr() to maintain the original form of the pointer",
+    "timestamp": "2026-02-07T16:41:40.223870"
+  },
+  {
+    "commit_hash": "4d23d9f7fa7c9ed10b5b32a4e4871ddce02b2337",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "fbdev: mb862xxfb: Use int type to store negative error codes",
+    "timestamp": "2026-02-07T16:43:42.285047"
+  },
+  {
+    "commit_hash": "9d80eaa1a1d37539224982b76c9ceeee736510b9",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ext4: increase i_disksize to offset + len in ext4_update_disksize_before_punch()",
+    "timestamp": "2026-02-07T16:45:19.821876"
+  },
+  {
+    "commit_hash": "8583bb0f9a7ed744a376ad4f1647efc240927a5a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mpage: convert do_mpage_readpage() to return void type",
+    "timestamp": "2026-02-07T16:52:18.829631"
+  },
+  {
+    "commit_hash": "391253b25f078d2fe5657a1dedd360396d186407",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "time: Fix spelling mistakes in comments",
+    "timestamp": "2026-02-07T16:53:07.044708"
+  },
+  {
+    "commit_hash": "41bba99777be40924d99af117e8c220652c20ab6",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "clk: ep93xx: Use int type to store negative error codes",
+    "timestamp": "2026-02-07T16:53:14.616012"
+  },
+  {
+    "commit_hash": "b0f4ade163e551d0c470ead7ac57eaf373eec71a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "perf trace: Fix IS_ERR() vs NULL check bug",
+    "timestamp": "2026-02-07T16:54:25.024906"
+  },
+  {
+    "commit_hash": "e551cc21bb0bb3f0a776a012c6033ccd4cbe419e",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "JFS: Remove redundant 0 value initialization",
+    "timestamp": "2026-02-07T16:55:40.886087"
+  },
+  {
+    "commit_hash": "6a59fc4a3a5b19ea375b54ea70d16713c45ea5a0",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "cpuset: change return type of is_partition_[in]valid to bool",
+    "timestamp": "2026-02-07T16:58:15.019822"
+  },
+  {
+    "commit_hash": "4bd22a7ae5742df90abfdc0931a0f1bded65c1de",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mm: fix duplicate accounting of free pages in should_reclaim_retry()",
+    "timestamp": "2026-02-07T17:05:03.717141"
+  },
+  {
+    "commit_hash": "725e9d81868fcedaeef775948e699955b01631ae",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "um: Fix help message for ssl-non-raw",
+    "timestamp": "2026-02-07T17:08:59.093922"
+  },
+  {
+    "commit_hash": "27296c1f0027a9b35faa7af71d7490c96409551e",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "media: raspberrypi: use int type to store negative error codes",
+    "timestamp": "2026-02-07T17:13:35.515560"
+  },
+  {
+    "commit_hash": "882569dca6646eb3294ec048d76f9bfea1f3348f",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "PCI: plda: Remove dev_err_probe() when the errno is -ENOMEM",
+    "timestamp": "2026-02-07T17:15:01.304025"
+  },
+  {
+    "commit_hash": "d5c42cb4583c59e24262f0227fe9a0bf35a661e1",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "hwmon: (nct6775) Use int type to store negative error codes",
+    "timestamp": "2026-02-07T17:15:14.205036"
+  },
+  {
+    "commit_hash": "a6461d2039fac16e7965bf91742f592986803194",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "hwmon: (ltc4282) remove the use of dev_err_probe()",
+    "timestamp": "2026-02-07T17:15:22.345349"
+  },
+  {
+    "commit_hash": "c3a49515225e44b2593839a4b3fec70c39dc0c89",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "power: supply: Remove the use of dev_err_probe()",
+    "timestamp": "2026-02-07T17:15:30.016368"
+  },
+  {
+    "commit_hash": "9c41ead04ec0d3ee54505039879aee20cf495e0a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "md/md-bitmap: add a new parameter 'flush' to bitmap_ops->enabled",
+    "timestamp": "2026-02-07T17:18:22.992279"
+  },
+  {
+    "commit_hash": "60d6f01b5a7de4f1475774cc807840a002d601d6",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/radeon/dpm: Remove redundant ternary operators",
+    "timestamp": "2026-02-07T17:18:55.760867"
+  },
+  {
+    "commit_hash": "be585f7ebc99598edf97c3001d0f8d67954ab376",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ASoC: codecs: fs210x: Add NULL check in fs210x_register_snd_component",
+    "timestamp": "2026-02-07T17:20:53.600261"
+  },
+  {
+    "commit_hash": "f490253809c8dab4af62e787f5a3ac3d22aa869c",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "platform/x86/amd/pmf: Remove redundant ternary operators",
+    "timestamp": "2026-02-07T17:21:52.773437"
+  },
+  {
+    "commit_hash": "40c26230a1bfdf46f93e4136dbb96d093744c80d",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "irqchip: Use int type to store negative error codes",
+    "timestamp": "2026-02-07T17:22:50.260636"
+  },
+  {
+    "commit_hash": "4466dd3d719cca113308e8ae539adf7b3d68c985",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "dm-pcache: use int type to store negative error codes",
+    "timestamp": "2026-02-07T17:24:16.630492"
+  },
+  {
+    "commit_hash": "8a9e097def55391273d3042b32350ded1ec83e04",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mtd: rawnand: pl353: Use int type to store negative error codes",
+    "timestamp": "2026-02-07T17:25:02.756540"
+  },
+  {
+    "commit_hash": "1f9128f121a872f27251be60ccccfd98c136d72e",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "crypto: hisilicon - check the sva module status while enabling or disabling address prefetch",
+    "timestamp": "2026-02-07T17:26:31.439787"
+  },
+  {
+    "commit_hash": "11f5c5f9e43e9020bae452232983fe98e7abfce0",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ASoC: qcom: use int type to store negative error codes",
+    "timestamp": "2026-02-07T17:28:17.419740"
+  },
+  {
+    "commit_hash": "7216d7b9beb87f4afd62d737f024254ca3c0746c",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "iio: proximity: Remove dev_err_probe() if error is -ENOMEM",
+    "timestamp": "2026-02-07T17:32:12.980714"
+  },
+  {
+    "commit_hash": "e9e124501f0d7ea2caea94711efe50fe081a11ea",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "cpufreq: use strlen() for governor name comparison",
+    "timestamp": "2026-02-07T17:33:55.609032"
+  },
+  {
+    "commit_hash": "ed1e7e22571c29ccb4069c8eb92bf1ad1fbcc95c",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "net: hibmcge: Remove the use of dev_err_probe()",
+    "timestamp": "2026-02-07T17:34:37.943749"
+  },
+  {
+    "commit_hash": "e115d3d70ecc674df2e716e7030893424fa110fb",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "scsi: hpsa: Fix incorrect comment format",
+    "timestamp": "2026-02-07T17:37:25.451675"
+  },
+  {
+    "commit_hash": "0d00ebc6b869f4df67c05522bc1e8d01d1c7daa7",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "spi: SPISG: Remove the use of dev_err_probe()",
+    "timestamp": "2026-02-07T17:38:28.613975"
+  },
+  {
+    "commit_hash": "656c45811d33b07f0bfcd8bd803976c73a6951cc",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "iio: light: adjd_s311: Use iio_push_to_buffers_with_ts() to allow source size runtime check",
+    "timestamp": "2026-02-07T17:42:15.918029"
+  },
+  {
+    "commit_hash": "fc4e990a326e608eb8937eba737908c660b7a410",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/amdgpu: remove duplicated argument wptr_va",
+    "timestamp": "2026-02-07T17:43:22.615047"
+  },
+  {
+    "commit_hash": "f91c6c70d103a619c58aa02bddf3c27c6433556a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "scsi: ufs: host: mediatek: Add debug information for Auto-Hibern8",
+    "timestamp": "2026-02-07T17:45:24.438550"
+  },
+  {
+    "commit_hash": "eeea7688632e0c697f66bdd71708c8faf36f6540",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "net/sched: Use TC_RTAB_SIZE instead of magic number",
+    "timestamp": "2026-02-07T17:45:52.805166"
+  },
+  {
+    "commit_hash": "a1e1c10878d7ea5147bef02a068061a9c3e1461a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "clk: tegra: Remove redundant semicolons",
+    "timestamp": "2026-02-07T17:46:04.689946"
+  },
+  {
+    "commit_hash": "0ecc0e17f05bbb953b6ea3812e78bab224f08595",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "spi: bcm2835: Remove redundant semicolons",
+    "timestamp": "2026-02-07T17:48:35.651947"
+  },
+  {
+    "commit_hash": "f6cc4140e161831e5796f099f5abc3af953ae2b8",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "regulator: tps6524x: Remove unnecessary memset",
+    "timestamp": "2026-02-07T17:49:42.304830"
+  },
+  {
+    "commit_hash": "7ce73ee6dc5977fd9dbe8194e7e8073a2f9a50fb",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "gpio: aggregator: fix macros coding style error",
+    "timestamp": "2026-02-07T17:49:54.990877"
+  },
+  {
+    "commit_hash": "1bcf63a44381691d6192872801f830ce3250e367",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/amd/display: fix a Null pointer dereference vulnerability",
+    "timestamp": "2026-02-07T17:52:19.380723"
+  },
+  {
+    "commit_hash": "53f433891e698e76aaf01b84b30a17a79a53535c",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "scripts/spelling.txt: add notifer||notifier to spelling.txt",
+    "timestamp": "2026-02-07T17:53:51.481870"
+  },
+  {
+    "commit_hash": "f0374d80711adf8628bdd442131c045c64a10951",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ext4: remove unnecessary s_mb_last_start",
+    "timestamp": "2026-02-07T17:57:40.909745"
+  },
+  {
+    "commit_hash": "4e8fc4f7208b032674ef8a4977b96484c328515c",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "netfs: Remove unused declaration netfs_queue_write_request()",
+    "timestamp": "2026-02-07T18:00:23.470495"
+  },
+  {
+    "commit_hash": "151c0aa896c47a4459e07fee7d4843f44c1bb18e",
+    "error_type": "429_RATE_LIMIT",
+    "error_msg": "Agent analysis failed with 429_RATE_LIMIT",
+    "subject": "usb: gadget : fix use-after-free in composite_dev_cleanup()",
+    "timestamp": "2026-02-07T18:05:15.160752"
+  },
+  {
+    "commit_hash": "5d6ecaaa922611ec3ca067723ccefafb543010ee",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "cpufreq: Remove duplicate check in __cpufreq_offline()",
+    "timestamp": "2026-02-07T18:09:57.647770"
+  },
+  {
+    "commit_hash": "e480898e767c54a883e965fc306e2ece013cbca5",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drivers/perf: hisi: Support PMUs with no interrupt",
+    "timestamp": "2026-02-07T18:10:12.215037"
+  },
+  {
+    "commit_hash": "b3fb0eb5c28766e3768f9f5b2968d33da00c4cea",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "um: Remove the pid parameter of handle_trap()",
+    "timestamp": "2026-02-07T18:12:16.160475"
+  },
+  {
+    "commit_hash": "03dfefdacfe7127ff9c8a5167b0e72f6ab9fb9db",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mm/memfd: clarify error handling labels in memfd_create()",
+    "timestamp": "2026-02-07T18:14:32.383449"
+  },
+  {
+    "commit_hash": "7035a082348acf1d43ffb9ff735899f8e3863f8f",
+    "error_type": "429_RATE_LIMIT",
+    "error_msg": "Agent analysis failed with 429_RATE_LIMIT",
+    "subject": "wifi: mt76: mt7921: prevent decap offload config before STA initialization",
+    "timestamp": "2026-02-07T18:18:14.769140"
+  },
+  {
+    "commit_hash": "b9fd9888a5654e59f6c6249337e36c53c1faa329",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "bnxt_en: eliminate the compile warning in bnxt_request_irq due to CONFIG_RFS_ACCEL",
+    "timestamp": "2026-02-07T18:19:23.774114"
+  },
+  {
+    "commit_hash": "4cf65845fdd09d711fc7546d60c9abe010956922",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "Input: cs40l50-vibra - fix potential NULL dereference in cs40l50_upload_owt()",
+    "timestamp": "2026-02-07T18:19:30.286393"
+  },
+  {
+    "commit_hash": "34d9a2aa7f5015f69899a8f665b052b8dcf87317",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "wifi: rtw88: coex: Use bitwise instead of arithmetic operator for flags",
+    "timestamp": "2026-02-07T18:19:34.876710"
+  },
+  {
+    "commit_hash": "ad0cf0729f530fad0e6aad7d47b1d280666cd4a7",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "net: hns3: delete redundant address before the array",
+    "timestamp": "2026-02-07T18:24:27.057923"
+  },
+  {
+    "commit_hash": "f3128dd6762d71ec92ae888bf582a5f751c3f2e0",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "security: Remove unused declaration cap_mmap_file()",
+    "timestamp": "2026-02-07T18:24:48.454001"
+  },
+  {
+    "commit_hash": "c246e780250f61b1a8d207ff354878a9a1883c4c",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mmc: sdhci_am654: Drop the use of sdhci_pltfm_free()",
+    "timestamp": "2026-02-07T18:25:26.235867"
+  },
+  {
+    "commit_hash": "e0d4a0f1d066f14522049e827107a577444d9183",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "MAINTAINERS: Update HiSilicon GPIO driver maintainer",
+    "timestamp": "2026-02-07T18:36:40.936052"
+  },
+  {
+    "commit_hash": "85eb82b3c2a4af98fce7f9a578d5970425ca36a8",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "iio: resolver: Use iio_push_to_buffers_with_ts() to provide length for runtime checks.",
+    "timestamp": "2026-02-07T18:45:40.346026"
+  },
+  {
+    "commit_hash": "8f08055bc67a355aca55856cc810b89645506a5f",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "iio: introduced iio_push_to_buffers_with_ts() that takes a data_total_len argument.",
+    "timestamp": "2026-02-07T18:46:20.787712"
+  },
+  {
+    "commit_hash": "6d243c80fe9178878f4924804d35f1ed24f590cb",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "net: phy: mediatek: Sort config and file names in Kconfig and Makefile",
+    "timestamp": "2026-02-07T18:49:30.039842"
+  },
+  {
+    "commit_hash": "75a9001bab36f0456f6aae1ab0aa487db456464a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "perf/x86/intel/ds: Remove redundant assignments to sample.period",
+    "timestamp": "2026-02-07T18:52:19.775080"
+  },
+  {
+    "commit_hash": "0aa8496adda570c2005410a30df963a16643a3dc",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "wifi: mt76: mt7925: fix missing hdr_trans_tlv command for broadcast wtbl",
+    "timestamp": "2026-02-07T18:53:18.844902"
+  },
+  {
+    "commit_hash": "402e38e6b71f5739119ca3107f375e112d63c7c5",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ext4: prevent stale extent cache entries caused by concurrent I/O writeback",
+    "timestamp": "2026-02-07T18:54:52.587948"
+  },
+  {
+    "commit_hash": "a404be5399d762f5737a4a731b42a38f552f2b44",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "blk-throttle: Split throtl_charge_bio() into bps and iops functions",
+    "timestamp": "2026-02-07T18:56:07.878007"
+  },
+  {
+    "commit_hash": "8f6c52b7534ae9c4c0ae2b57f4f45c31ceac4b41",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "scsi: ufs: core: Change hwq_id type and value",
+    "timestamp": "2026-02-07T18:57:41.508515"
+  },
+  {
+    "commit_hash": "2e27fa943b74c9fc5fdf93090508c3c722531c66",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "treewide: fix typo \"previlege\"",
+    "timestamp": "2026-02-07T18:58:20.808222"
+  },
+  {
+    "commit_hash": "cd348c5e6af3b4220eb37a08fdaf9c924a2e1c19",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mm: page_alloc: remove redundant READ_ONCE",
+    "timestamp": "2026-02-07T18:58:57.517797"
+  },
+  {
+    "commit_hash": "35382a3646404891aba092013b855c3db4b8b487",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "arm64/cpufeature: Add missing id_aa64mmfr4 feature reg update",
+    "timestamp": "2026-02-07T19:04:39.897953"
+  },
+  {
+    "commit_hash": "1d28f25d6a6c968ebee8ee6d5b65691d5bfcf95f",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "MAINTAINERS: hfs/hfsplus: add myself as maintainer",
+    "timestamp": "2026-02-07T19:07:07.440413"
+  },
+  {
+    "commit_hash": "1b66124135f5f8640bd540fadda4b20cdd23114b",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "net: ethernet: mtk_eth_soc: revise QDMA packet scheduler settings",
+    "timestamp": "2026-02-07T19:15:17.267462"
+  },
+  {
+    "commit_hash": "bd1c935811ae6bd112321c50ed83444eca4facc8",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/hisilicon/hibmc: Getting connector info and EDID by using AUX channel",
+    "timestamp": "2026-02-07T19:18:44.588283"
+  },
+  {
+    "commit_hash": "1e7f35512e77dd7276e91ade4e03807f88b97eb3",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/hisilicon/hibmc: Refactor the member of drm_aux in struct hibmc_dp",
+    "timestamp": "2026-02-07T19:18:46.028708"
+  },
+  {
+    "commit_hash": "ae4814a3aab54ce548950161937176b7f9ec6f77",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "iommu: remove unneeded semicolon",
+    "timestamp": "2026-02-07T19:19:25.537832"
+  },
+  {
+    "commit_hash": "acea9943271b62905033f2f8ca571cdd52d6ea7b",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "vdso: Address variable shadowing in macros",
+    "timestamp": "2026-02-07T19:19:31.986906"
+  },
+  {
+    "commit_hash": "aa52eb6d1672cd75507d235a9f6e1b93fb5d3bb4",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "Documentation: Remove repeated word in docs",
+    "timestamp": "2026-02-07T19:20:41.293983"
+  },
+  {
+    "commit_hash": "f1fdec956f63f7cafc1706e5d907bc9c4d241083",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "x86: pgtable: convert to use tlb_remove_ptdesc()",
+    "timestamp": "2026-02-07T19:22:12.920709"
+  },
+  {
+    "commit_hash": "a091d9711bdee46a76fa14fad31cb261a6dad74a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "smb:client: smb: client: Add reverse mapping from tcon to superblocks",
+    "timestamp": "2026-02-07T19:23:23.025541"
+  },
+  {
+    "commit_hash": "9e6ec8cf64e2973f0ec74f09023988cabd218426",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "thermal: core: Remove duplicate struct declaration",
+    "timestamp": "2026-02-07T19:24:53.693764"
+  },
+  {
+    "commit_hash": "e8c00f5433d020a2230226abe7e43f43dc686920",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "Bluetooth: HCI: Add definition of hci_rp_remote_name_req_cancel",
+    "timestamp": "2026-02-07T19:25:16.162788"
+  },
+  {
+    "commit_hash": "aac45075f6d79a63ac8dff93b3e1d7053a6ba628",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "jbd2: add a missing data flush during file and fs synchronization",
+    "timestamp": "2026-02-07T19:26:26.948261"
+  },
+  {
+    "commit_hash": "7854cc94ec353ee501074637a7caf87a49cff35b",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "wifi: mt76: mt7996: Rely on mt7996_vif_link in mt7996_mcu_twt_agrt_update signature",
+    "timestamp": "2026-02-07T19:29:05.518147"
+  },
+  {
+    "commit_hash": "2b5b834cc3b97492901ed399ae0ceb737f6aaa06",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "perf kwork: Remove unreachable judgments",
+    "timestamp": "2026-02-07T19:31:20.320476"
+  },
+  {
+    "commit_hash": "6a16e448e5515c9580712b47cfe99f091acb07ea",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "LoongArch: KVM: Add stub for kvm_arch_vcpu_preempted_in_kernel()",
+    "timestamp": "2026-02-07T19:32:47.823878"
+  },
+  {
+    "commit_hash": "262666c04be6afa8f15b6c318596b54c37499cda",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "soc: hisilicon: kunpeng_hccs: Fix incorrect string assembly",
+    "timestamp": "2026-02-07T19:36:07.161231"
+  },
+  {
+    "commit_hash": "ce468a7b63f1e4e2b09f951ca0a7c8d402fed746",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/vc4: plane: fix inconsistent indenting warning",
+    "timestamp": "2026-02-07T19:40:11.601807"
+  },
+  {
+    "commit_hash": "13c90c222049764bb7e6a1689bd785f424bd8bd5",
+    "error_type": "429_RATE_LIMIT",
+    "error_msg": "Agent analysis failed with 429_RATE_LIMIT",
+    "subject": "RDMA/hns: Fix invalid sq params not being blocked",
+    "timestamp": "2026-02-07T19:40:22.645543"
+  },
+  {
+    "commit_hash": "a0d3c8bcb9206ac207c7ad3182027c6b0a1319bb",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "LoongArch: Eliminate superfluous get_numa_distances_cnt()",
+    "timestamp": "2026-02-07T19:40:52.295166"
+  },
+  {
+    "commit_hash": "8cf985e069ca56b72e1d6053cb0f6007d7ee9ca5",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "power: supply: ltc4162l: convert to use maple tree register cache",
+    "timestamp": "2026-02-07T19:41:13.903407"
+  },
+  {
+    "commit_hash": "571d36837c84707ea36fa37ab1373a124e328ed4",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/amdgpu: fix inconsistent indenting warning",
+    "timestamp": "2026-02-07T19:41:57.455193"
+  },
+  {
+    "commit_hash": "2d4d775d11d314a505283cf31ae83460ef26ec70",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm: pl111: fix inconsistent indenting warning",
+    "timestamp": "2026-02-07T19:42:04.993133"
+  },
+  {
+    "commit_hash": "6c21fc09c3e60c018997c80331cdac5f1603558b",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "iio: accel: kx022a: Switch to sparse friendly iio_device_claim/release_direct()",
+    "timestamp": "2026-02-07T19:48:28.554732"
+  },
+  {
+    "commit_hash": "b8ffd979356e33a3af0854d47375bba611126f3b",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "x86/irq: Fix missing declaration of 'io_apic_irqs'",
+    "timestamp": "2026-02-07T19:50:33.915231"
+  },
+  {
+    "commit_hash": "14d502cc2718e6af44b575c95670292689a3ad65",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "cxl/mbox: Add SET_FEATURE mailbox command",
+    "timestamp": "2026-02-07T19:51:12.750070"
+  },
+  {
+    "commit_hash": "498c48c66eb600535f1221652509eefb2dce7770",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mm, swap: fix reclaim offset calculation error during allocation",
+    "timestamp": "2026-02-07T20:05:25.606510"
+  },
+  {
+    "commit_hash": "e3ae2dec849ba8bc5649c2d0507e02bd4379da71",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mm, swap: simplify percpu cluster updating",
+    "timestamp": "2026-02-07T20:06:39.959986"
+  },
+  {
+    "commit_hash": "996c451d982d1f3f110a4639d822abcd433336e7",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "dm-crypt: don't initialize cc_sector again",
+    "timestamp": "2026-02-07T20:09:58.702409"
+  },
+  {
+    "commit_hash": "f1897f2f08b28ae59476d8b73374b08f856973af",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mm: khugepaged: fix call hpage_collapse_scan_file() for anonymous vma",
+    "timestamp": "2026-02-07T20:12:45.128529"
+  },
+  {
+    "commit_hash": "ad4c9a8a980336450631dce8cc0799f9a8de1914",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "wifi: mt76: mt7996: add implicit beamforming support for mt7992",
+    "timestamp": "2026-02-07T20:13:39.559796"
+  },
+  {
+    "commit_hash": "d07ecb4f7070e84de49e8fa4e5a83dd52716d805",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "wifi: mt76: mt7996: fix register mapping",
+    "timestamp": "2026-02-07T20:14:45.820101"
+  },
+  {
+    "commit_hash": "113d469e7e23579a64b0fbb2eadf9228763092be",
+    "error_type": "429_RATE_LIMIT",
+    "error_msg": "Agent analysis failed with 429_RATE_LIMIT",
+    "subject": "wifi: mt76: mt7925: fix the invalid ip address for arp offload",
+    "timestamp": "2026-02-07T20:18:34.808743"
+  },
+  {
+    "commit_hash": "6025ea5abbe5d813d6a41c78e6ea14259fb503f4",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mm/page_alloc: add some detailed comments in can_steal_fallback",
+    "timestamp": "2026-02-07T20:19:07.282596"
+  },
+  {
+    "commit_hash": "42986665305c386d984d59af64781e79c1f8fabc",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "wifi: iwlwifi: api: remove the double word",
+    "timestamp": "2026-02-07T20:20:30.449228"
+  },
+  {
+    "commit_hash": "adcaff355bd8abb9b5097cc72339fb9cbf2eefda",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "xfs: remove redundant update for ticket->t_curr_res in xfs_log_ticket_regrant",
+    "timestamp": "2026-02-07T20:20:42.574983"
+  },
+  {
+    "commit_hash": "ddd068d81445b17ac0bed084dfeb9e58b4df3ddd",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "MIPS: ftrace: Declare ftrace_get_parent_ra_addr() as static",
+    "timestamp": "2026-02-07T20:22:25.982776"
+  },
+  {
+    "commit_hash": "ae62ae7994a0f453b1566d04ec090cf1bd534675",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "um: Mark get_top_address as __init",
+    "timestamp": "2026-02-07T20:23:43.118887"
+  },
+  {
+    "commit_hash": "bcd89fd8f5f6caf440a52aa3822316f12bc0732d",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "um: Mark parse_cache_line as __init",
+    "timestamp": "2026-02-07T20:23:49.362249"
+  },
+  {
+    "commit_hash": "594c82329eef335ad90f5276ae0d2dff4d6d2668",
+    "error_type": "429_RATE_LIMIT",
+    "error_msg": "Agent analysis failed with 429_RATE_LIMIT",
+    "subject": "usb: host: xhci-plat: Assign shared_hcd->rsrc_start",
+    "timestamp": "2026-02-07T20:24:08.402232"
+  },
+  {
+    "commit_hash": "02f1a5911550bd6b39526d18282b10d441e04ed1",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "hwmon: (acpi_power_meter) Fix update the power trip points on failure",
+    "timestamp": "2026-02-07T20:24:31.925608"
+  },
+  {
+    "commit_hash": "d86088e2c35de1eeaae757e49f697f8f42b288fa",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "bpf: Remove migrate_{disable|enable} from bpf_selem_free()",
+    "timestamp": "2026-02-07T20:24:57.756088"
+  },
+  {
+    "commit_hash": "1b1a01db17af7a44cae8d8d7d7a18dbb056be40f",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "bpf: Remove migrate_{disable|enable} from LPM trie",
+    "timestamp": "2026-02-07T20:25:44.717016"
+  },
+  {
+    "commit_hash": "4d141e444e26f12c1bacfc39f66ab8de04deac1b",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "KVM: VMX: Fix comment of handle_vmx_instruction()",
+    "timestamp": "2026-02-07T20:25:57.911346"
+  },
+  {
+    "commit_hash": "b989531e0bd7704dc837e37f8d16bbc921e6cf6c",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "vduse: relicense under GPL-2.0 OR BSD-3-Clause",
+    "timestamp": "2026-02-07T20:27:09.085154"
+  },
+  {
+    "commit_hash": "587013d72c1a217ced9f42a9a08c8013052cabfc",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/hisilicon/hibmc: refactored struct hibmc_drm_private",
+    "timestamp": "2026-02-07T20:29:17.503407"
+  },
+  {
+    "commit_hash": "1d720a2d4fe45efa62c73b2af279dc7db709c06d",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ALSA: hda/realtek: Add a comment for alc_fixup_inv_dmic()",
+    "timestamp": "2026-02-07T20:30:31.662015"
+  },
+  {
+    "commit_hash": "a801016da0bbb955acf1a551584790e3816bb4db",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "iio: light: Use aligned_s64 instead of open coding alignment.",
+    "timestamp": "2026-02-07T20:31:22.606785"
+  },
+  {
+    "commit_hash": "f8fd0968eff52cf092c0d517d17507ea2f6e5ea5",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/panel: novatek-nt35950: fix return value check in nt35950_probe()",
+    "timestamp": "2026-02-07T20:37:23.404980"
+  },
+  {
+    "commit_hash": "6a5c63d43c0216d64915baa0e0eacf2beb66b271",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "bpf: Use raw_spinlock_t for LPM trie",
+    "timestamp": "2026-02-07T20:40:21.111570"
+  },
+  {
+    "commit_hash": "5f1b64e9a9b7ee9cfd32c6b2fab796e29bfed075",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "sched/numa: fix memory leak due to the overwritten vma->numab_state",
+    "timestamp": "2026-02-07T20:40:50.217540"
+  },
+  {
+    "commit_hash": "19630cf57233e845b6ac57c9c969a4888925467b",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "crypto: bcm - add error check in the ahash_hmac_init function",
+    "timestamp": "2026-02-07T20:46:16.578976"
+  },
+  {
+    "commit_hash": "d610020f030bec819f42de327c2bd5437d2766b3",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ubi: wl: Put source PEB into correct list if trying locking LEB failed",
+    "timestamp": "2026-02-07T20:48:25.208530"
+  },
+  {
+    "commit_hash": "4c199241b662c7c992dbb2d5176b48a77d8c9291",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "jbd2: unified release of buffer_head in do_one_pass()",
+    "timestamp": "2026-02-07T20:51:50.015784"
+  },
+  {
+    "commit_hash": "25f51ea8ac8144af2fefb743c3439547610368ff",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ext4: disambiguate the return value of ext4_dio_write_end_io()",
+    "timestamp": "2026-02-07T20:52:02.824133"
+  },
+  {
+    "commit_hash": "19629206894f1265d9148be475d8665c58596ab3",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "hisi_acc_vfio_pci: create subfunction for data reading",
+    "timestamp": "2026-02-07T20:52:49.676606"
+  },
+  {
+    "commit_hash": "ff140456b5fbf03cbd04277c21d4fcdc5974e97b",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "hwmon: (pmbus/mpq8785) Convert comma to semicolon",
+    "timestamp": "2026-02-07T20:57:11.398567"
+  },
+  {
+    "commit_hash": "21cae8debc6a1d243f64fa82cd1b41cb612b5c61",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/amdkfd: Fix wrong usage of INIT_WORK()",
+    "timestamp": "2026-02-07T20:58:15.346351"
+  },
+  {
+    "commit_hash": "cedcf08f43dab0bf27e7a4e9bc82f27ccf89241d",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ocfs2: remove unused declaration in header file",
+    "timestamp": "2026-02-07T21:02:55.228849"
+  },
+  {
+    "commit_hash": "bd6ad65ddcbb2d0aceb843d31d4f1bd8d628200a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mm: filemap: filemap_fault_recheck_pte_none() use pte_offset_map_ro_nolock()",
+    "timestamp": "2026-02-07T21:03:48.868214"
+  },
+  {
+    "commit_hash": "b349a5a2b6e236b25095c6ff886b3451de5ea041",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "arm64: pgtable: Warn unexpected pmdp_test_and_clear_young()",
+    "timestamp": "2026-02-07T21:05:05.667534"
+  },
+  {
+    "commit_hash": "2e7bb66b55f4e01c07bb71624ca33654728dfa63",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "nvmem: imx-iim: Convert comma to semicolon",
+    "timestamp": "2026-02-07T21:05:53.359002"
+  },
+  {
+    "commit_hash": "bf373d2919d98f3d1fe1b19a0304f72fe74386d9",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "phy: realtek: usb: fix NULL deref in rtk_usb3phy_probe",
+    "timestamp": "2026-02-07T21:07:03.361000"
+  },
+  {
+    "commit_hash": "bc74d329ceba23f998ead4f716266da5afe319f7",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "netlink: Remove the dead code in netlink_proto_init()",
+    "timestamp": "2026-02-07T21:07:51.398767"
+  },
+  {
+    "commit_hash": "3e0f7cc887b77603182dceca4d3a6e84f6a40d0a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "net: hns3: fixed reset failure issues caused by the incorrect reset type",
+    "timestamp": "2026-02-07T21:09:26.408000"
+  },
+  {
+    "commit_hash": "ca959e328b2243687aa0b95de01414d13e4f3ade",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "bcachefs: fix possible null-ptr-deref in __bch2_ec_stripe_head_get()",
+    "timestamp": "2026-02-07T21:12:49.879880"
+  },
+  {
+    "commit_hash": "cb055b2135d82db48ca0a3ff744b158fd5400eb2",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "um: Do not propagate mem parameter to kernel",
+    "timestamp": "2026-02-07T21:18:26.126057"
+  },
+  {
+    "commit_hash": "393271aa712a5b6292ae9122eec8e1b789a382b6",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "arm64: dts: colibri-imx8x: Fix typo \"rewritting\"",
+    "timestamp": "2026-02-07T21:20:03.061974"
+  },
+  {
+    "commit_hash": "b86f7c9fad06b960f3ac5594cb3838a7eaeb1892",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "kcsan: Remove redundant call of kallsyms_lookup_name()",
+    "timestamp": "2026-02-07T21:28:40.149933"
+  },
+  {
+    "commit_hash": "05edd60f0d9c10f14d97b0ff923c3ed7c8b9e6b2",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mmc: host: Fix typos in comments across various files",
+    "timestamp": "2026-02-07T21:28:48.917314"
+  },
+  {
+    "commit_hash": "3fbdc0e8d9238560a2ecf587b945401a9a68f347",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "usb: gadget: udc: fix typo in the comment",
+    "timestamp": "2026-02-07T21:35:09.039026"
+  },
+  {
+    "commit_hash": "cb58977016d1b25781743e5fbe6a545493785e37",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/xe: use devm_add_action_or_reset() helper",
+    "timestamp": "2026-02-07T21:36:01.703429"
+  },
+  {
+    "commit_hash": "a54dc8c68a5b33ca00b8dcd3b87681aacfbfc9dc",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "soundwire: Correct some typos in comments",
+    "timestamp": "2026-02-07T21:36:04.079094"
+  },
+  {
+    "commit_hash": "e9f49feefb4b13b36441aae51649a67a8389bd40",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "smb: client: Correct typos in multiple comments across various files",
+    "timestamp": "2026-02-07T21:36:24.281633"
+  },
+  {
+    "commit_hash": "2c0b2b484b164072ba6cf52af1bde85158fc75d4",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ASoC: intel: sof_sdw: Add check devm_kasprintf() returned value",
+    "timestamp": "2026-02-07T21:36:48.779900"
+  },
+  {
+    "commit_hash": "794007a8c848dab99dfdfbaa2c7e143481026f32",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ata: Fix typos in the comment",
+    "timestamp": "2026-02-07T21:38:52.508865"
+  },
+  {
+    "commit_hash": "3eae4a916fc0eb6f85b5d399e10335dbd24dd765",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "spi: spi-cadence: Fix missing spi_controller_is_target() check",
+    "timestamp": "2026-02-07T21:39:15.241702"
+  },
+  {
+    "commit_hash": "e7b71bf181d03b4835e2d424fa587f4db2438fb2",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "reset: npcm: convert comma to semicolon",
+    "timestamp": "2026-02-07T21:39:52.855096"
+  },
+  {
+    "commit_hash": "ac9fc25f114aec07e7f5348606c9702f8377f44a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ASoC: improve macro definition on TWL4030_OUTPUT_PGA",
+    "timestamp": "2026-02-07T21:43:00.604287"
+  },
+  {
+    "commit_hash": "6d26c5e4d83cd39006bfd2ecbc97fbfac34aaefa",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "nfs: fix the comment of nfs_get_root",
+    "timestamp": "2026-02-07T21:46:09.555157"
+  },
+  {
+    "commit_hash": "76a3f3f164d470ef1f22a34dbdb13549934cf339",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "nfsd: fix some spelling errors in comments",
+    "timestamp": "2026-02-07T21:47:56.180086"
+  },
+  {
+    "commit_hash": "eb059a413c06af1c59b26cb85ddb7cf73d82b92e",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "nfsd: remove unused parameter of nfsd_file_mark_find_or_create",
+    "timestamp": "2026-02-07T21:47:59.083179"
+  },
+  {
+    "commit_hash": "9bcd923952078e08cd4570e15f751a6c9ec7633f",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "dm vdo indexer: Convert comma to semicolon",
+    "timestamp": "2026-02-07T21:49:26.616594"
+  },
+  {
+    "commit_hash": "55bef83509f0cbe4cc54a583ac0313389dabee66",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "Input: Convert comma to semicolon",
+    "timestamp": "2026-02-07T21:49:43.317465"
+  },
+  {
+    "commit_hash": "bcd1371bd85e560ccc9159b7747f94bfe43b77a6",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "wifi: p54: Use IRQF_NO_AUTOEN flag in request_irq()",
+    "timestamp": "2026-02-07T21:49:44.209095"
+  },
+  {
+    "commit_hash": "669afa4e8715c5730fb353166f9aaaa14d4fed64",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "um: Remove the redundant newpage check in update_pte_range",
+    "timestamp": "2026-02-07T21:55:35.331366"
+  },
+  {
+    "commit_hash": "e61e002a67da9ec36571af743c94a968cf1ce116",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "block, bfq: remove local variable 'split' in bfq_init_rq()",
+    "timestamp": "2026-02-07T21:57:56.000957"
+  },
+  {
+    "commit_hash": "afe671ac3e9309e55d556d066250bd37d9c47d1a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ASoC: meson: Remove unused declartion in header file",
+    "timestamp": "2026-02-07T21:58:36.258275"
+  },
+  {
+    "commit_hash": "0145aa38cb39a041025747d02c276ac9a9acece2",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "btrfs: convert try_release_subpage_extent_buffer() to take a folio",
+    "timestamp": "2026-02-07T21:59:29.465553"
+  },
+  {
+    "commit_hash": "46dcc7c92e63879a49cfbd99949858df0335a122",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mm: migrate: simplify find_mm_struct()",
+    "timestamp": "2026-02-07T22:01:57.305342"
+  },
+  {
+    "commit_hash": "1d07085402d122f223bda3f8b72bea37a46ee0c9",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "smp: Mark smp_prepare_boot_cpu() __init",
+    "timestamp": "2026-02-07T22:06:00.928197"
+  },
+  {
+    "commit_hash": "389e72c5d1efcfd3962d29624c1b78cfa002911e",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "nvme: Convert comma to semicolon",
+    "timestamp": "2026-02-07T22:07:01.826928"
+  },
+  {
+    "commit_hash": "d579ef05daa759612546728d9ec1e1996b288f82",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "media: atomisp: Remove unused declaration",
+    "timestamp": "2026-02-07T22:09:48.813273"
+  },
+  {
+    "commit_hash": "4191eefef978d734fa8249bede3f9b02a85aa3c0",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ext4: get rid of ppath in convert_initialized_extent()",
+    "timestamp": "2026-02-07T22:18:47.184710"
+  },
+  {
+    "commit_hash": "369c944ed1d7c3fb7b35f24e4735761153afe7b3",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ext4: propagate errors from ext4_find_extent() in ext4_insert_range()",
+    "timestamp": "2026-02-07T22:19:49.018801"
+  },
+  {
+    "commit_hash": "bd11198da8ac239c0e831ac476490fd38db9cc37",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "cxgb3: Remove unused declarations",
+    "timestamp": "2026-02-07T22:22:49.603750"
+  },
+  {
+    "commit_hash": "ce09036ea4f0a54e9dcd7ba644bb1db7cf2d95d4",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ext4: make extent status types exclusive",
+    "timestamp": "2026-02-07T22:24:51.046293"
+  },
+  {
+    "commit_hash": "f3baf33b9cae0e00fe1870abca952d5dfea53dc6",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ext4: passing block allocation information to ext4_es_insert_extent()",
+    "timestamp": "2026-02-07T22:25:19.117664"
+  },
+  {
+    "commit_hash": "fccd632670408ab3066712aa90cc972b18d1b617",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ext4: let __revise_pending() return newly inserted pendings",
+    "timestamp": "2026-02-07T22:25:25.044291"
+  },
+  {
+    "commit_hash": "38676d9e33133c0c39951b812b19cc5b9ff1978a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "lib: fix the NULL vs IS_ERR() bug for debugfs_create_dir()",
+    "timestamp": "2026-02-07T22:28:07.101211"
+  },
+  {
+    "commit_hash": "ce6697a613c523b4e2e1d4228c0a81facc080076",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "bus: imx-weim: support compile test",
+    "timestamp": "2026-02-07T22:29:09.256637"
+  },
+  {
+    "commit_hash": "fe16a749731e86d580acf8d43b0298dfe6d1503d",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "powerpc/pasemi: Remove obsoleted declaration for pas_pci_irq_fixup()",
+    "timestamp": "2026-02-07T22:33:08.808817"
+  },
+  {
+    "commit_hash": "324db0faf8e1cbfde7a033e77f674f2bb819b54e",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "s390/hypfs: Remove obsoleted declaration for hypfs_dbfs_exit",
+    "timestamp": "2026-02-07T22:35:44.034502"
+  },
+  {
+    "commit_hash": "4266563afbb1eb1735aa7063fe8ff6377991ae42",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "net: hns: Use IS_ERR_OR_NULL() helper function",
+    "timestamp": "2026-02-07T22:36:30.286305"
+  },
+  {
+    "commit_hash": "4609c6eab67bb1785a5337ddafb5c74c796bcd35",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "irqdomain: Use IS_ERR_OR_NULL() in irq_domain_trim_hierarchy()",
+    "timestamp": "2026-02-07T22:37:18.507117"
+  },
+  {
+    "commit_hash": "c3eddf5e8c30adb6f43fc0b149e88b9feb76f381",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "HSI: omap-ssi: Remove unnecessary debugfs_create_dir() error check",
+    "timestamp": "2026-02-07T22:47:03.339243"
+  },
+  {
+    "commit_hash": "441e36ef5b347d9ab4f54f7b54853266be687556",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ovl: ovl_parse_param_lowerdir: Add missed '\\n' for pr_err",
+    "timestamp": "2026-02-07T22:51:31.003924"
+  },
+  {
+    "commit_hash": "94f7f4b90d6c815d68359a979006f8b3b1e90dc0",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "staging: vme: vme_user: Remove NULL check of list_entry()",
+    "timestamp": "2026-02-07T22:56:01.148039"
+  },
+  {
+    "commit_hash": "dedb2fe37574857c84e9598b9f5272505dedf7af",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "bcachefs: Fix double assignment in check_dirent_to_subvol()",
+    "timestamp": "2026-02-07T22:56:11.894728"
+  },
+  {
+    "commit_hash": "1934b0c82e980df4c9503315bed4e178905cc1d8",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ARM: OMAP1: Remove unused declarations in arch/arm/mach-omap1/pm.h",
+    "timestamp": "2026-02-07T22:57:10.677790"
+  },
+  {
+    "commit_hash": "e2e641fe1c69bbbe94a89e814967da50e6df226b",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "RDMA/ipoib: Remove unused declarations",
+    "timestamp": "2026-02-07T22:59:05.639720"
+  },
+  {
+    "commit_hash": "ff6615efa87482600af14c1a1c4b5da4e32f9a82",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ALSA: trident: Remove unused declarations",
+    "timestamp": "2026-02-07T23:01:14.747496"
+  },
+  {
+    "commit_hash": "b7ecc44a1b0427d8c71fe2e2d46c4a8dd6e6f64d",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/hisilicon: Remove unused delarations",
+    "timestamp": "2026-02-07T23:05:18.460616"
+  },
+  {
+    "commit_hash": "0a399892a596055c8f069a17b4775fe5ab66d32a",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "tcp: rstreason: introduce SK_RST_REASON_TCP_KEEPALIVE_TIMEOUT for active reset",
+    "timestamp": "2026-02-07T23:07:47.493063"
+  },
+  {
+    "commit_hash": "7e51d21ee01077c538d87c22fc9a164bd9b60a53",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "rxrpc: Remove unused function declarations",
+    "timestamp": "2026-02-07T23:08:57.827447"
+  },
+  {
+    "commit_hash": "cd7d47c5762997a2b1de57a47cd48a1cdad38d96",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "regulator: max77857: Make max77857_id static",
+    "timestamp": "2026-02-07T23:09:39.680379"
+  },
+  {
+    "commit_hash": "a3f7f7ef4bfefbbb03cc5e6fa73cd07bdb329bed",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm/mediatek: Support \"Pre-multiplied\" blending in OVL",
+    "timestamp": "2026-02-07T23:10:11.995694"
+  },
+  {
+    "commit_hash": "250ac9ee60dbb14cdf422ab7f2bc28d671ac9f46",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "drm: Add the missing symbol '.'",
+    "timestamp": "2026-02-07T23:11:39.460389"
+  },
+  {
+    "commit_hash": "fc328c869c4128fc1f975b8cfe92e9ec320d477f",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "selinux: refactor code to return ERR_PTR in selinux_netlbl_sock_genattr",
+    "timestamp": "2026-02-07T23:11:46.107145"
+  },
+  {
+    "commit_hash": "114f530e1e600245b0f9c114aa75c1ecc4376c67",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "bcachefs: show none if label is not set",
+    "timestamp": "2026-02-07T23:17:42.553528"
+  },
+  {
+    "commit_hash": "da6fa380d369a7e4d61f7a654efb48a018e3e563",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "bcachefs: Align the display format of `btrees/inodes/keys`",
+    "timestamp": "2026-02-07T23:18:25.448767"
+  },
+  {
+    "commit_hash": "12e7ff1a1ee5dda5880116db451a3f3d23a79267",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "bcachefs: Fix missing spaces in journal_entry_dev_usage_to_text",
+    "timestamp": "2026-02-07T23:18:33.018514"
+  },
+  {
+    "commit_hash": "26c7d8413aaf113a54b54f63e151416a5c5c2a88",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mm: thp: support \"THPeligible\" semantics for mTHP with anonymous shmem",
+    "timestamp": "2026-02-07T23:18:47.623525"
+  },
+  {
+    "commit_hash": "d160a58de59cd617d9648d0458d572d063d66b71",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "workqueue: Remove the arguments @hotplug_cpu and @online from wq_update_pod()",
+    "timestamp": "2026-02-07T23:20:15.367236"
+  },
+  {
+    "commit_hash": "3a0c8d2908297b63f0e5a3364721ffd32e5a0c0c",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "wifi: mt76: mt7925: extend mt7925_mcu_uni_bss_ps for per-link BSS",
+    "timestamp": "2026-02-07T23:27:49.579097"
+  },
+  {
+    "commit_hash": "b6749ee8b466d5f0fe0a8b80991bc44866ce0be5",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "wifi: mt76: mt7925: extend mt7925_mcu_set_bss_pm for per-link BSS",
+    "timestamp": "2026-02-07T23:28:05.119974"
+  },
+  {
+    "commit_hash": "acdfc3e79899871ef8146efd9be74a9b78858b67",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "wifi: mt76: mt7925: extend mt7925_mcu_set_tx with for per-link BSS",
+    "timestamp": "2026-02-07T23:29:08.816406"
+  },
+  {
+    "commit_hash": "e5d896703d1318d539a972ff01dc887c124af427",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "mm/memory-failure: correct comment in me_swapcache_dirty",
+    "timestamp": "2026-02-07T23:34:22.472018"
+  },
+  {
+    "commit_hash": "7084021c04d62a79f86fe5331f54d1d89a9652a5",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "netfs: drop usage of folio_file_pos",
+    "timestamp": "2026-02-07T23:37:59.442871"
+  },
+  {
+    "commit_hash": "25c776dd03b3e3ee16ad3402feabe20d811c7cb2",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "iommu/arm-smmu-v3: Enable HTTU for stage1 with io-pgtable mapping",
+    "timestamp": "2026-02-07T23:38:50.444604"
+  },
+  {
+    "commit_hash": "2335c9cb831faba1a4efcc612886073b6f175fe4",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "ARM: 9407/1: Add support for STACKLEAK gcc plugin",
+    "timestamp": "2026-02-07T23:40:02.756951"
+  },
+  {
+    "commit_hash": "0b88d1654d556264bcd24a9cb6383f0888e30131",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "netfilter: nf_conncount: fix wrong variable type",
+    "timestamp": "2026-02-07T23:43:43.627230"
+  },
+  {
+    "commit_hash": "68594cec291ff9523b9feb3f43fd853dcddd1f60",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "media: xc2028: avoid use-after-free in load_firmware_cb()",
+    "timestamp": "2026-02-07T23:45:29.067105"
+  },
+  {
+    "commit_hash": "bc49694a9e8fd1b36bca47d9a54ec8da8e39012f",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "md: pass in max_sectors for pers->sync_request()",
+    "timestamp": "2026-02-07T23:47:54.139594"
+  },
+  {
+    "commit_hash": "3ee1167a16dfae1f656d52133a72be992cb85047",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "MIPS: ip22-gio: Make ip22_gio_set_64bit() and ip22_gio_init() static",
+    "timestamp": "2026-02-07T23:49:10.971969"
+  },
+  {
+    "commit_hash": "48d85de244047eabe07c5040af12dfa736d61d6c",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "media: mediatek: vcodec: Fix unreasonable data conversion",
+    "timestamp": "2026-02-07T23:49:50.181463"
+  },
+  {
+    "commit_hash": "6684f97981c528965d7458dd4f89cfbc8fa980b2",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "crypto: qat - Fix typo",
+    "timestamp": "2026-02-07T23:51:18.605870"
+  },
+  {
+    "commit_hash": "41ceca8c616313159b6eab19c8ecc9cceba2c4d0",
+    "error_type": "JSON_ERROR",
+    "error_msg": "Agent analysis failed with JSON_ERROR",
+    "subject": "PCI: microchip: Move PLDA structures to plda-pcie.h",
+    "timestamp": "2026-02-07T23:52:56.303524"
+  }
+]

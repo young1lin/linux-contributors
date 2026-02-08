@@ -23,6 +23,7 @@ Usage:
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -87,13 +88,15 @@ def setup_logging(output_dir: str, version_range: str, mode: str = "analyze") ->
 SUBSYSTEM_TIERS = {
     1: ["mm/", "kernel/sched/", "kernel/locking/", "net/core/", "init/", "lib/"],
     2: ["kernel/bpf/", "kernel/trace/", "kernel/", "net/", "fs/", "block/",
-        "security/", "crypto/", "ipc/", "virt/kvm/"],
+        "security/", "crypto/", "ipc/", "virt/kvm/",
+        "arch/x86/kernel/", "arch/x86/mm/", "arch/x86/entry/",
+        "arch/arm64/kernel/", "arch/arm64/mm/"],
     3: ["drivers/gpu/drm/", "drivers/net/", "drivers/scsi/", "drivers/nvme/",
         "drivers/ata/", "drivers/usb/", "drivers/pci/", "drivers/input/",
-        "sound/", "arch/"],
+        "sound/", "arch/", "tools/perf/", "tools/bpf/"],
     4: ["drivers/", "tools/", "samples/", "scripts/"],
-    5: ["Documentation/devicetree/", "MAINTAINERS", "CREDITS", ".mailmap"],
-    6: ["Documentation/"],
+    5: ["Documentation/devicetree/"],
+    6: ["Documentation/", "MAINTAINERS", "CREDITS", ".mailmap"],
 }
 
 # Map tier number (1-6) to A2_subsystem_criticality points
@@ -291,6 +294,235 @@ class ProgressCounter:
             return self.current
 
 
+# ==================== CIRCUIT BREAKER ====================
+
+class CircuitBreaker:
+    """Circuit breaker to prevent cascading 429 failures."""
+
+    def __init__(self, threshold: int = 5, cooldown: int = 600):
+        """
+        Initialize circuit breaker.
+
+        Args:
+            threshold: Number of consecutive 429s before opening circuit
+            cooldown: Seconds to wait before closing circuit
+        """
+        self.threshold = threshold
+        self.cooldown = cooldown
+        self.consecutive_429s = 0
+        self.open_until = 0
+        self.lock = threading.Lock()
+
+    def record_429(self):
+        """Record a 429 error."""
+        with self.lock:
+            self.consecutive_429s += 1
+            if self.consecutive_429s >= self.threshold:
+                self.open_until = time.time() + self.cooldown
+                return True  # Circuit just opened
+        return False
+
+    def record_success(self):
+        """Record a successful request."""
+        with self.lock:
+            self.consecutive_429s = 0
+
+    def is_open(self) -> bool:
+        """Check if circuit is open."""
+        with self.lock:
+            if time.time() < self.open_until:
+                return True
+            # Reset if cooldown period passed
+            if self.open_until > 0 and time.time() >= self.open_until:
+                self.consecutive_429s = 0
+                self.open_until = 0
+            return False
+
+    def get_wait_time(self) -> int:
+        """Get seconds until circuit closes."""
+        with self.lock:
+            if self.open_until == 0:
+                return 0
+            return max(0, int(self.open_until - time.time()))
+
+
+# ==================== HELPER FUNCTIONS ====================
+
+def calculate_timeout(
+    files_changed: int,
+    hunks: int,
+    insertions: int,
+    deletions: int,
+    base_timeout: int = 180,
+    medium_timeout: int = 300,
+    complex_timeout: int = 480,
+) -> int:
+    """
+    Calculate adaptive timeout based on commit complexity.
+
+    Complexity tiers:
+    - Simple (≤2 files, ≤3 hunks, <100 lines) → base_timeout
+    - Medium (3-8 files, 3-15 hunks, 100-500 lines) → medium_timeout
+    - Complex (≥8 files, ≥15 hunks, ≥500 lines) → complex_timeout
+
+    Args:
+        files_changed: Number of files changed
+        hunks: Number of diff hunks
+        insertions: Lines added
+        deletions: Lines removed
+        base_timeout: Timeout for simple commits
+        medium_timeout: Timeout for medium commits
+        complex_timeout: Timeout for complex commits
+
+    Returns:
+        Timeout in seconds
+    """
+    total_lines = insertions + deletions
+
+    # Complex: meets ANY high threshold
+    if files_changed >= 8 or hunks >= 15 or total_lines >= 500:
+        return complex_timeout
+
+    # Simple: meets ALL low thresholds
+    if files_changed <= 2 and hunks <= 3 and total_lines < 100:
+        return base_timeout
+
+    # Medium: everything else
+    return medium_timeout
+
+
+def extract_and_parse_json(
+    raw_output: str,
+    logger: logging.Logger | None = None,
+    max_json_retries: int = 2,
+) -> tuple[dict | None, str]:
+    """
+    Extract and parse JSON with multiple strategies and retry.
+
+    Strategies:
+    1. Direct JSON parse
+    2. Extract from ```json...``` markdown blocks
+    3. Extract from ```...``` markdown blocks
+    4. Regex search for JSON-like content
+    5. Common issue repair (trailing commas, unbalanced braces)
+
+    Args:
+        raw_output: Raw string output from agent
+        logger: Optional logger instance
+        max_json_retries: Number of repair attempts
+
+    Returns:
+        (parsed_dict, error_type) - error_type is None on success,
+        or one of "JSON_ERROR", "EMPTY_OUTPUT"
+    """
+    if not raw_output or not raw_output.strip():
+        if logger:
+            logger.error("Empty output from agent")
+        return None, "EMPTY_OUTPUT"
+
+    output = raw_output.strip()
+    json_start_marker = "```json"
+    json_end_marker = "```"
+
+    # Strategy 1: Direct JSON parse
+    try:
+        return json.loads(output), None
+    except json.JSONDecodeError:
+        pass
+
+    # Strategy 2: Extract from ```json...``` markdown blocks
+    if json_start_marker in output:
+        try:
+            json_start = output.find(json_start_marker) + len(json_start_marker)
+            json_end = output.find(json_end_marker, json_start)
+            if json_end > json_start:
+                extracted = output[json_start:json_end].strip()
+                return json.loads(extracted), None
+        except (json.JSONDecodeError, ValueError):
+            pass
+
+    # Strategy 3: Extract from ```...``` markdown blocks (without json marker)
+    if "```" in output and json_start_marker not in output:
+        try:
+            json_start = output.find("```") + 3
+            json_end = output.rfind("```")
+            if json_end > json_start:
+                extracted = output[json_start:json_end].strip()
+                return json.loads(extracted), None
+        except (json.JSONDecodeError, ValueError):
+            pass
+
+    # Strategy 4: Regex search for JSON-like content
+    # Look for content between braces that looks like JSON
+    json_pattern = r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}'
+    matches = re.findall(json_pattern, output, re.DOTALL)
+    for match in matches:
+        try:
+            parsed = json.loads(match)
+            # Validate it has required keys
+            if "score_breakdown" in parsed or "primary_category" in parsed:
+                return parsed, None
+        except json.JSONDecodeError:
+            continue
+
+    # Strategy 5: Attempt repair with retry
+    for attempt in range(max_json_retries):
+        repaired = repair_common_json_issues(output, attempt)
+        if repaired != output:  # Only try if repair made changes
+            try:
+                return json.loads(repaired), None
+            except json.JSONDecodeError:
+                pass
+
+    # Log failure with snippet
+    if logger:
+        snippet = output[:500] if len(output) > 500 else output
+        logger.error(f"Failed to parse JSON after all strategies. Output snippet: {snippet}")
+
+    return None, "JSON_ERROR"
+
+
+def repair_common_json_issues(json_str: str, attempt: int) -> str:
+    """
+    Attempt to repair common JSON parsing issues.
+
+    Args:
+        json_str: The JSON string to repair
+        attempt: Repair attempt number (0-indexed)
+
+    Returns:
+        Repaired JSON string
+    """
+    result = json_str
+
+    # Remove common prefixes (thinking text)
+    if attempt == 0:
+        # Remove "Here's the JSON:" type prefixes
+        for prefix in ["Here's the JSON:", "The JSON is:", "Result:", "Output:", "Analysis:"]:
+            if prefix in result:
+                result = result.split(prefix)[-1].strip()
+
+    # Fix trailing commas (common in AI-generated JSON)
+    result = re.sub(r',\s*([}\]])', r'\1', result)
+
+    # Fix unbalanced braces - add missing closing braces
+    open_braces = result.count('{')
+    close_braces = result.count('}')
+    if open_braces > close_braces:
+        result += '}' * (open_braces - close_braces)
+
+    # Fix unbalanced brackets
+    open_brackets = result.count('[')
+    close_brackets = result.count(']')
+    if open_brackets > close_brackets:
+        result += ']' * (open_brackets - close_brackets)
+
+    # Remove control characters that can break JSON
+    result = ''.join(char for char in result if ord(char) >= 32 or char in '\n\r\t')
+
+    return result
+
+
 # ==================== AI AGENT ANALYSIS ====================
 
 def analyze_with_agent(
@@ -298,7 +530,11 @@ def analyze_with_agent(
     repo_path: str,
     logger: logging.Logger | None = None,
     timeout: int = 300,
-    max_retries: int = 3,
+    max_retries: int = 5,
+    json_retries: int = 2,
+    circuit_breaker: CircuitBreaker | None = None,
+    timeout_config: dict | None = None,
+    request_delay: float = 0,
 ) -> tuple[dict, str | None]:
     """
     Call Claude CLI with kernel-commit-analyzer agent to analyze a commit.
@@ -307,14 +543,41 @@ def analyze_with_agent(
         commit_data: The commit data to analyze
         repo_path: Path to the git repository
         logger: Optional logger instance
-        timeout: Timeout in seconds for the agent call (default: 300)
-        max_retries: Max retries for 429 rate limit errors (default: 3)
+        timeout: Timeout in seconds for the agent call (default: 300, can be overridden by adaptive timeout)
+        max_retries: Max retries for 429 rate limit errors (default: 5)
+        json_retries: Max retries for JSON parsing errors (default: 2)
+        circuit_breaker: Optional circuit breaker instance
+        timeout_config: Dict with base_timeout, medium_timeout, complex_timeout
 
     Returns:
         (analysis_dict, error_type) - error_type is None on success,
-        or one of "TIMEOUT", "429_RATE_LIMIT", "JSON_ERROR", "OTHER"
+        or one of "TIMEOUT", "429_RATE_LIMIT", "JSON_ERROR", "OTHER", "CIRCUIT_OPEN"
     """
     short_hash = commit_data.hash[:12]
+
+    # Check circuit breaker
+    if circuit_breaker and circuit_breaker.is_open():
+        wait_time = circuit_breaker.get_wait_time()
+        if logger:
+            logger.warning(f"[CIRCUIT_BREAKER] {short_hash} - Circuit open, waiting {wait_time}s")
+        print(f"  [CIRCUIT BREAKER] Circuit open, waiting {wait_time}s...")
+        time.sleep(wait_time)
+
+    # Calculate adaptive timeout if config provided
+    actual_timeout = timeout
+    if timeout_config:
+        actual_timeout = calculate_timeout(
+            files_changed=commit_data.files_changed,
+            hunks=commit_data.hunks,
+            insertions=commit_data.insertions,
+            deletions=commit_data.deletions,
+            base_timeout=timeout_config.get("base", 180),
+            medium_timeout=timeout_config.get("medium", 300),
+            complex_timeout=timeout_config.get("complex", 480),
+        )
+        if logger:
+            logger.debug(f"Using adaptive timeout: {actual_timeout}s (files={commit_data.files_changed}, hunks={commit_data.hunks})")
+
     if logger:
         logger.debug(f"{'='*60}")
         logger.debug(f"Analyzing commit: {short_hash}")
@@ -357,6 +620,10 @@ def analyze_with_agent(
 
     for attempt in range(max_retries):
         try:
+            # Add delay before request to avoid rate limiting (skip on first attempt if delay is 0)
+            if request_delay > 0:
+                time.sleep(request_delay)
+
             if logger:
                 logger.debug(f"Calling Claude CLI agent... (attempt {attempt + 1}/{max_retries})")
 
@@ -364,7 +631,7 @@ def analyze_with_agent(
                 cmd,
                 capture_output=True,
                 text=True,
-                timeout=timeout,
+                timeout=actual_timeout,
                 env={**subprocess.os.environ, "NO_COLOR": "1"},
             )
 
@@ -376,9 +643,19 @@ def analyze_with_agent(
 
             # Check for 429 rate limit error in stderr or output
             if "429" in stderr or "rate limit" in stderr.lower() or "429" in output.lower():
+                if circuit_breaker:
+                    circuit_breaker.record_429()
+                    if circuit_breaker.is_open():
+                        if logger:
+                            logger.warning(f"[CIRCUIT_BREAKER] {short_hash} - Circuit opened due to repeated 429s")
+
                 if attempt < max_retries - 1:
-                    # Exponential backoff: 30s, 60s, 120s
-                    wait_time = 30 * (2 ** attempt)
+                    # Enhanced exponential backoff with jitter: 30s, 60s, 120s, 240s, 480s
+                    base_wait = 30 * (2 ** attempt)
+                    # Add jitter: ±20% random variation
+                    jitter = int(base_wait * 0.2 * (random.random() * 2 - 1))
+                    wait_time = base_wait + jitter
+
                     if logger:
                         logger.warning(f"[429_RATE_LIMIT] {short_hash} - Hit rate limit, waiting {wait_time}s before retry...")
                     print(f"  [429 RATE LIMIT] {short_hash} - Waiting {wait_time}s before retry (attempt {attempt + 1}/{max_retries})...")
@@ -390,39 +667,48 @@ def analyze_with_agent(
                     print(f"  [429 RATE LIMIT] Max retries exceeded for {short_hash}")
                     return get_fallback_analysis(commit_data, "429_RATE_LIMIT"), "429_RATE_LIMIT"
 
-            if "```json" in output:
-                json_start = output.find("```json") + 7
-                json_end = output.find("```", json_start)
-                output = output[json_start:json_end].strip()
-            elif "```" in output:
-                json_start = output.find("```") + 3
-                json_end = output.rfind("```")
-                output = output[json_start:json_end].strip()
-
+            # Use enhanced JSON parsing
             if logger:
-                logger.debug(f"Parsing agent response...")
-            analysis = json.loads(output)
+                logger.debug(f"Raw agent output length: {len(output)} chars")
+                logger.debug(f"Raw agent output (first 500 chars): {output[:500]}")
+
+            analysis, json_error = extract_and_parse_json(output, logger, json_retries)
+
+            if json_error:
+                if logger:
+                    logger.error(f"[{json_error}] {short_hash} - Failed to parse JSON")
+                print(f"  [ERROR] Failed to parse JSON from agent: {json_error}")
+                return get_fallback_analysis(commit_data, json_error), json_error
+
+            # Record success for circuit breaker
+            if circuit_breaker:
+                circuit_breaker.record_success()
 
             if logger:
                 category = analysis.get("primary_category", "UNKNOWN")
                 score_breakdown = analysis.get("score_breakdown", {})
                 logger.debug(f"Agent response OK - category: {category}, score_breakdown keys: {list(score_breakdown.keys())}")
                 logger.debug(f"Agent response top-level keys: {list(analysis.keys())}")
-                # Log first 500 chars of response for debugging
-                logger.debug(f"Raw agent output (first 500 chars): {output[:500]}")
 
             return analysis, None
 
         except subprocess.TimeoutExpired:
+            # For timeout, try once more with extended timeout if this wasn't already a complex commit
+            if attempt == 0 and timeout_config:
+                total_lines = commit_data.insertions + commit_data.deletions
+                is_complex = commit_data.files_changed >= 8 or commit_data.hunks >= 15 or total_lines >= 500
+                if not is_complex:
+                    if logger:
+                        logger.warning(f"[TIMEOUT] {short_hash} - Timed out after {actual_timeout}s, retrying with extended timeout")
+                    print(f"  [TIMEOUT] Agent timed out for {short_hash} ({actual_timeout}s), retrying with extended timeout...")
+                    # Update actual_timeout to complex timeout for retry
+                    actual_timeout = timeout_config.get("complex", 480)
+                    continue
+
             if logger:
-                logger.error(f"[TIMEOUT] {short_hash} - Agent analysis timed out after {timeout}s")
-            print(f"  [TIMEOUT] Agent analysis timed out for {short_hash} ({timeout}s)")
+                logger.error(f"[TIMEOUT] {short_hash} - Agent analysis timed out after {actual_timeout}s")
+            print(f"  [TIMEOUT] Agent analysis timed out for {short_hash} ({actual_timeout}s)")
             return get_fallback_analysis(commit_data, "TIMEOUT"), "TIMEOUT"
-        except json.JSONDecodeError as e:
-            if logger:
-                logger.error(f"[JSON_ERROR] {short_hash} - Failed to parse JSON: {e}")
-            print(f"  [ERROR] Failed to parse JSON from agent: {e}")
-            return get_fallback_analysis(commit_data, "JSON_ERROR"), "JSON_ERROR"
         except Exception as e:
             if logger:
                 logger.error(f"[ERROR] {short_hash} - Agent analysis failed: {type(e).__name__}: {e}")
@@ -437,11 +723,14 @@ def analyze_with_agent(
 
 class FailedCommit:
     """Record of a commit that failed during analysis."""
-    def __init__(self, commit_hash: str, error_type: str, error_msg: str, subject: str = ""):
+    def __init__(self, commit_hash: str, error_type: str, error_msg: str, subject: str = "",
+                 raw_output: str = "", retry_count: int = 0):
         self.commit_hash = commit_hash
-        self.error_type = error_type  # "TIMEOUT", "429_RATE_LIMIT", "JSON_ERROR", "OTHER"
+        self.error_type = error_type  # "TIMEOUT", "429_RATE_LIMIT", "JSON_ERROR", "OTHER", "CIRCUIT_OPEN"
         self.error_msg = error_msg
         self.subject = subject
+        self.raw_output = raw_output  # Store raw agent output for debugging
+        self.retry_count = retry_count  # Track retry attempts
         self.timestamp = datetime.now().isoformat()
 
     def to_dict(self) -> dict:
@@ -450,12 +739,21 @@ class FailedCommit:
             "error_type": self.error_type,
             "error_msg": self.error_msg,
             "subject": self.subject,
+            "raw_output": self.raw_output,
+            "retry_count": self.retry_count,
             "timestamp": self.timestamp,
         }
 
     @classmethod
     def from_dict(cls, d: dict) -> "FailedCommit":
-        return cls(d["commit_hash"], d["error_type"], d["error_msg"], d.get("subject", ""))
+        return cls(
+            d["commit_hash"],
+            d["error_type"],
+            d["error_msg"],
+            d.get("subject", ""),
+            d.get("raw_output", ""),
+            d.get("retry_count", 0)
+        )
 
 
 def save_failed_commits(failed: list[FailedCommit], output_dir: str, version_range: str):
@@ -749,7 +1047,11 @@ def process_single_commit(
     progress: ProgressCounter,
     logger: logging.Logger | None = None,
     timeout: int = 300,
-    max_retries: int = 3,
+    max_retries: int = 5,
+    json_retries: int = 2,
+    circuit_breaker: CircuitBreaker | None = None,
+    timeout_config: dict | None = None,
+    request_delay: float = 0,
 ) -> tuple[ScoredCommit, str | None]:
     """
     Process a single commit with AI agent analysis.
@@ -785,7 +1087,17 @@ def process_single_commit(
     )
 
     print(f"  -> Calling AI agent for {short_hash}...")
-    analysis, error_type = analyze_with_agent(commit_data, repo_path, logger, timeout, max_retries)
+    analysis, error_type = analyze_with_agent(
+        commit_data,
+        repo_path,
+        logger,
+        timeout,
+        max_retries,
+        json_retries,
+        circuit_breaker,
+        timeout_config,
+        request_delay,
+    )
 
     # Validate agent response - if empty/incomplete, use fallback
     if not error_type and not is_valid_analysis(analysis):
@@ -829,11 +1141,11 @@ def process_single_commit(
 
     # --- Global score range clamp ---
     SCORE_RANGES = {
-        "code_volume": (0, 20), "subsystem_criticality": (0, 10),
-        "cross_subsystem": (0, 10), "category_base": (0, 15),
-        "stable_lts": (0, 5), "user_impact": (0, 5),
-        "novelty": (0, 5), "review_chain": (0, 8),
-        "message_quality": (0, 6), "testing": (0, 4),
+        "code_volume": (0, 14), "subsystem_criticality": (0, 10),
+        "cross_subsystem": (0, 6), "category_base": (0, 15),
+        "stable_lts": (0, 5), "user_impact": (0, 10),
+        "novelty": (0, 5), "review_chain": (0, 10),
+        "message_quality": (0, 7), "testing": (0, 6),
         "atomicity": (0, 2), "cross_org": (0, 4),
         "maintainer": (0, 3), "response": (0, 3),
     }
@@ -864,6 +1176,21 @@ def process_single_commit(
         }
         for key, cap in maint_low_caps.items():
             components[key] = min(components.get(key, 0), cap)
+
+    # DOC-MAINTAINERS metadata-only cap: max ~10 points
+    if primary_cat == "DOC-MAINTAINERS":
+        metadata_files = {".mailmap", "CREDITS", "MAINTAINERS"}
+        files_basenames = [os.path.basename(f) for f in commit_data.files]
+        total_lines = commit_data.insertions + commit_data.deletions
+        if all(f in metadata_files for f in files_basenames) and total_lines <= 5:
+            metadata_caps = {
+                "code_volume": 1, "subsystem_criticality": 1, "cross_subsystem": 0,
+                "category_base": 3, "stable_lts": 0, "user_impact": 0, "novelty": 0,
+                "review_chain": 1, "message_quality": 2, "testing": 0, "atomicity": 2,
+                "cross_org": 0, "maintainer": 0, "response": 0,
+            }
+            for key, cap in metadata_caps.items():
+                components[key] = min(components.get(key, 0), cap)
 
     # Calculate dimension scores from clamped components
     score_technical = components["code_volume"] + components["subsystem_criticality"] + components["cross_subsystem"]
@@ -967,7 +1294,14 @@ def analyze_commits(
     track_failures: bool = True,
     logger: logging.Logger | None = None,
     timeout: int = 300,
-    max_retries: int = 3,
+    max_retries: int = 5,
+    json_retries: int = 2,
+    circuit_threshold: int = 5,
+    circuit_cooldown: int = 600,
+    timeout_base: int = 180,
+    timeout_medium: int = 300,
+    timeout_complex: int = 480,
+    request_delay: float = 0,
 ) -> list[dict]:
     """Analyze commits using AI agent with parallel processing."""
 
@@ -977,7 +1311,9 @@ def analyze_commits(
     logger.info(f"Company filter: {company_filter}")
     logger.info(f"Max commits: {max_commits}")
     logger.info(f"Max workers: {max_workers}")
-    logger.info(f"Timeout: {timeout}s, Max retries: {max_retries}")
+    logger.info(f"Timeout: {timeout}s, Max retries: {max_retries}, JSON retries: {json_retries}")
+    logger.info(f"Circuit breaker: threshold={circuit_threshold}, cooldown={circuit_cooldown}s")
+    logger.info(f"Adaptive timeout: base={timeout_base}s, medium={timeout_medium}s, complex={timeout_complex}s")
 
     cmd = [
         "git", "-C", repo_path, "log", "--no-merges",
@@ -1009,10 +1345,34 @@ def analyze_commits(
     failed_commits = []
     progress = ProgressCounter(len(commits))
 
+    # Initialize circuit breaker
+    circuit_breaker = CircuitBreaker(threshold=circuit_threshold, cooldown=circuit_cooldown)
+
+    # Timeout configuration for adaptive timeout
+    timeout_config = {
+        "base": timeout_base,
+        "medium": timeout_medium,
+        "complex": timeout_complex,
+    }
+
     try:
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {
-                executor.submit(process_single_commit, repo_path, commit, i, len(commits), progress, logger, timeout, max_retries): commit
+                executor.submit(
+                    process_single_commit,
+                    repo_path,
+                    commit,
+                    i,
+                    len(commits),
+                    progress,
+                    logger,
+                    timeout,
+                    max_retries,
+                    json_retries,
+                    circuit_breaker,
+                    timeout_config,
+                    request_delay,
+                ): commit
                 for i, commit in enumerate(commits)
             }
 
@@ -1086,7 +1446,14 @@ def repair_failed_commits(
     max_workers: int = 1,
     logger: logging.Logger | None = None,
     timeout: int = 300,
-    max_retries: int = 3,
+    max_retries: int = 5,
+    json_retries: int = 2,
+    circuit_threshold: int = 5,
+    circuit_cooldown: int = 600,
+    timeout_base: int = 180,
+    timeout_medium: int = 300,
+    timeout_complex: int = 480,
+    request_delay: float = 0,
 ) -> list[dict]:
     """
     Re-analyze commits that previously failed.
@@ -1127,6 +1494,16 @@ def repair_failed_commits(
     new_failed_commits = []
     progress = ProgressCounter(len(failed_commits))
 
+    # Initialize circuit breaker
+    circuit_breaker = CircuitBreaker(threshold=circuit_threshold, cooldown=circuit_cooldown)
+
+    # Timeout configuration for adaptive timeout
+    timeout_config = {
+        "base": timeout_base,
+        "medium": timeout_medium,
+        "complex": timeout_complex,
+    }
+
     try:
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {}
@@ -1157,6 +1534,10 @@ def repair_failed_commits(
                     logger,
                     timeout,
                     max_retries,
+                    json_retries,
+                    circuit_breaker,
+                    timeout_config,
+                    request_delay,
                 )
                 futures[future] = (fc, commit)
 
@@ -1235,7 +1616,14 @@ def analyze_all_chinese_companies(
     output_dir: str = "data",
     logger: logging.Logger | None = None,
     timeout: int = 300,
-    max_retries: int = 3,
+    max_retries: int = 5,
+    json_retries: int = 2,
+    circuit_threshold: int = 5,
+    circuit_cooldown: int = 600,
+    timeout_base: int = 180,
+    timeout_medium: int = 300,
+    timeout_complex: int = 480,
+    request_delay: float = 0,
 ) -> dict:
     """
     Analyze all Chinese companies and output JSONL files.
@@ -1270,6 +1658,13 @@ def analyze_all_chinese_companies(
             logger=logger,
             timeout=timeout,
             max_retries=max_retries,
+            json_retries=json_retries,
+            circuit_threshold=circuit_threshold,
+            circuit_cooldown=circuit_cooldown,
+            timeout_base=timeout_base,
+            timeout_medium=timeout_medium,
+            timeout_complex=timeout_complex,
+            request_delay=request_delay,
         )
 
         if not commits:
@@ -1494,7 +1889,16 @@ def main():
     parser.add_argument("--output-dir", default="data", help="Output directory for results")
     parser.add_argument("--workers", type=int, default=1, help="Number of parallel workers (default: 1)")
     parser.add_argument("--timeout", type=int, default=300, help="Timeout in seconds for each agent call (default: 300)")
-    parser.add_argument("--max-retries", type=int, default=3, help="Max retries for 429 rate limit errors (default: 3)")
+    parser.add_argument("--max-retries", type=int, default=5, help="Max retries for 429 rate limit errors (default: 5)")
+
+    # Advanced error handling options
+    parser.add_argument("--json-retries", type=int, default=2, help="Max retries for JSON parsing errors (default: 2)")
+    parser.add_argument("--circuit-threshold", type=int, default=5, help="Circuit breaker threshold (consecutive 429s, default: 5)")
+    parser.add_argument("--circuit-cooldown", type=int, default=600, help="Circuit breaker cooldown in seconds (default: 600)")
+    parser.add_argument("--timeout-base", type=int, default=180, help="Base timeout for simple commits (default: 180)")
+    parser.add_argument("--timeout-medium", type=int, default=300, help="Timeout for medium commits (default: 300)")
+    parser.add_argument("--timeout-complex", type=int, default=480, help="Timeout for complex commits (default: 480)")
+    parser.add_argument("--request-delay", type=float, default=0, help="Delay in seconds between requests to avoid rate limiting (default: 0)")
 
     # Repair mode: re-analyze failed commits
     parser.add_argument("--repair", action="store_true",
@@ -1527,6 +1931,13 @@ def main():
             max_workers=args.workers,
             timeout=args.timeout,
             max_retries=args.max_retries,
+            json_retries=args.json_retries,
+            circuit_threshold=args.circuit_threshold,
+            circuit_cooldown=args.circuit_cooldown,
+            timeout_base=args.timeout_base,
+            timeout_medium=args.timeout_medium,
+            timeout_complex=args.timeout_complex,
+            request_delay=args.request_delay,
         )
 
         if not repaired:
@@ -1585,6 +1996,13 @@ def main():
             output_dir=args.output_dir,
             timeout=args.timeout,
             max_retries=args.max_retries,
+            json_retries=args.json_retries,
+            circuit_threshold=args.circuit_threshold,
+            circuit_cooldown=args.circuit_cooldown,
+            timeout_base=args.timeout_base,
+            timeout_medium=args.timeout_medium,
+            timeout_complex=args.timeout_complex,
+            request_delay=args.request_delay,
         )
         return
 
@@ -1612,6 +2030,13 @@ def main():
         track_failures=True,
         timeout=args.timeout,
         max_retries=args.max_retries,
+        json_retries=args.json_retries,
+        circuit_threshold=args.circuit_threshold,
+        circuit_cooldown=args.circuit_cooldown,
+        timeout_base=args.timeout_base,
+        timeout_medium=args.timeout_medium,
+        timeout_complex=args.timeout_complex,
+        request_delay=args.request_delay,
     )
 
     if not commits:
